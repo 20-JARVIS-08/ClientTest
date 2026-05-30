@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behind The Scenes — Behnam Khosravi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #070707;
+            --gold: #50401d;
+            --gold-soft: #dbb04a;
+            --BH: rgba(238, 174, 77, 0.733);
+            --text: #f3f3f3;
+            --muted: #a0a0a0;
+            --nav-height: 72px;
+            --section-px: clamp(5%, 8vw, 10%);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--section-px);
+            background: rgba(5, 5, 5, .88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 155, 94, .18);
+            z-index: 1000;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 4vw, 32px);
+            letter-spacing: 3px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .back-link {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: var(--muted);
+            text-decoration: none;
+            border: 1px solid rgba(184, 155, 94, .2);
+            padding: 8px 16px;
+            transition: color .3s, border-color .3s;
+        }
+
+        .back-link:hover {
+            color: var(--gold-soft);
+            border-color: var(--gold-soft);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding-top: calc(var(--nav-height) + 60px);
+            padding-bottom: 60px;
+            padding-left: var(--section-px);
+            padding-right: var(--section-px);
+            border-bottom: 1px solid rgba(184, 155, 94, .08);
+        }
+
+        .eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 6px;
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            opacity: .7;
+            margin-bottom: 16px;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(38px, 7vw, 80px);
+            font-weight: 600;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: clamp(14px, 1.5vw, 17px);
+            color: var(--muted);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* BLOG ARTICLE */
+        .article-section {
+            padding: clamp(50px, 7vw, 90px) var(--section-px);
+            max-width: calc(var(--section-px) * 2 + 900px);
+        }
+
+        .article-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(18px, 2.2vw, 24px);
+            font-style: italic;
+            line-height: 1.75;
+            color: rgba(219, 176, 74, .85);
+            max-width: 700px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(184, 155, 94, .15);
+        }
+
+        .article-body {
+            font-size: clamp(14px, 1.4vw, 16px);
+            color: #ccc;
+            line-height: 2;
+            max-width: 680px;
+        }
+
+        .article-body p+p {
+            margin-top: 22px;
+        }
+
+        .article-body h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(20px, 2.5vw, 28px);
+            color: var(--text);
+            margin: 38px 0 14px;
+        }
+
+        /* ─── SLIDESHOW ──────────────────────────── */
+        .slideshow-section {
+            padding: clamp(50px, 7vw, 90px) var(--section-px);
+            border-top: 1px solid rgba(184, 155, 94, .08);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 4vw, 48px);
+            margin-bottom: 10px;
+            border-left: 2px solid var(--gold);
+            padding-left: 18px;
+            color: var(--gold-soft);
+            line-height: 1.15;
+        }
+
+        .slideshow-meta {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 35px;
+            padding-left: 20px;
+            text-transform: uppercase;
+        }
+
+        .slideshow {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #0e0e0e;
+            border: 1px solid rgba(184, 155, 94, .12);
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(60%) brightness(70%) contrast(110%);
+            transition: transform 12s linear;
+        }
+
+        .slide.active img {
+            transform: scale(1.06);
+        }
+
+        .slide:not(.active) img {
+            transform: scale(1);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .7) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 35px;
+            right: 35px;
+        }
+
+        .slide-caption-num {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 5px;
+            color: rgba(219, 176, 74, .6);
+            margin-bottom: 8px;
+        }
+
+        .slide-caption-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(15px, 2vw, 20px);
+            color: rgba(255, 255, 255, .85);
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        /* Progress bar */
+        .slide-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: var(--gold-soft);
+            width: 0%;
+            transition: none;
+        }
+
+        .slide-progress.running {
+            transition: width 10s linear;
+            width: 100%;
+        }
+
+        /* Controls */
+        .slide-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .slide-btn {
+            background: none;
+            border: 1px solid rgba(184, 155, 94, .3);
+            color: var(--muted);
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, color .3s, border-color .3s;
+            flex-shrink: 0;
+        }
+
+        .slide-btn:hover {
+            background: var(--BH);
+            color: #050505;
+            border-color: var(--gold);
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(184, 155, 94, .25);
+            cursor: pointer;
+            transition: background .3s, transform .3s;
+        }
+
+        .dot.active {
+            background: var(--gold-soft);
+            transform: scale(1.4);
+        }
+
+        .slide-counter {
+            margin-left: auto;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            font-family: 'Cinzel', serif;
+        }
+
+        /* PLACEHOLDER for missing images */
+        .slide-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .slide-placeholder-icon {
+            font-size: 40px;
+            opacity: .2;
+        }
+
+        .slide-placeholder-label {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: rgba(184, 155, 94, .3);
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: clamp(20px, 3vw, 35px);
+            text-align: center;
+            border-top: 1px solid #191919;
+            color: #666;
+            font-size: clamp(11px, 1.2vw, 13px);
+        }
+
+        @media (max-width:600px) {
+            .slide-caption {
+                left: 18px;
+                right: 18px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a class="logo" href="index.html">BK</a>
+        <a class="back-link" href="index.html">← Back to Home</a>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="eyebrow">Blog · Behind The Scenes</div>
+        <h1 class="page-title">Making<br><em style="color:var(--gold-soft);">Mandala</em></h1>
+        <p class="page-subtitle">An intimate look at the production of Behnam Khosravi's latest short film — the
+            challenges, discoveries, and quiet moments that shaped the work.</p>
+    </header>
+
+    <!-- ARTICLE -->
+    <article class="article-section">
+        <p class="article-intro">
+            Every film begins with a feeling — an image you can't shake, a silence you need to fill. Mandala began with
+            a dream about a man standing still while the world rotated around him.
+        </p>
+        <div class="article-body">
+            <p>
+                The concept for Mandala came slowly, the way the best ideas do. It wasn't a single moment of inspiration
+                but a gradual accumulation — images, conversations, half-remembered dreams — that eventually cohered
+                into something I could shoot. The word "mandala" itself kept returning to me: a geometric figure
+                representing the universe, a symbol of wholeness that must be continuously recreated and then destroyed.
+            </p>
+            <h3>The Location</h3>
+            <p>
+                We scouted for three months before finding the right locations. The film needed spaces that felt both
+                intimate and vast — rooms that could hold a person's entire history, corridors that suggested infinity.
+                What we found was something unexpected: the spaces we chose were almost all transitional — hallways,
+                thresholds, staircases. Never rooms of arrival.
+            </p>
+            <h3>Working with Natural Light</h3>
+            <p>
+                I made the decision early on to shoot exclusively with natural light. This meant our shooting schedule
+                was dictated by the sun, by weather, by the specific quality of winter afternoon light that existed for
+                only forty minutes each day. It created limitations that became the film's visual identity. Every frame
+                carries the texture of real time.
+            </p>
+            <h3>The Silence</h3>
+            <p>
+                Sound designer and I discussed silence for hours — how to use it, how to shape it. Silence in cinema is
+                never truly silent. There is always atmosphere, the hum of the world continuing. What we wanted was
+                directed silence: the kind that asks something of the viewer, that makes space for feeling.
+            </p>
+        </div>
+    </article>
+
+    <!-- SLIDESHOW -->
+    <section class="slideshow-section">
+        <h2 class="section-title">Production Stills</h2>
+        <div class="slideshow-meta">10-second auto-advance · 6 photographs</div>
+
+        <div class="slideshow" id="slideshow">
+            <!-- SLIDE 1 -->
+            <div class="slide active" data-caption="Pre-production scouting — searching for spaces that carry memory">
+                <img src="P1.jpg" alt="Behind the scenes 1">
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                    <div class="slide-caption-num">01 / 06</div>
+                    <div class="slide-caption-text">Pre-production scouting — searching for spaces that carry memory
+                    </div>
+                </div>
+                <div class="slide-progress" id="progress-0"></div>
+            </div>
+            <!-- SLIDE 2 -->
+            <div class="slide" data-caption="Setting up the first shot — natural light through a north-facing window">
+                <img src="P2.jpg" alt="Behind the scenes 2">
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                    <div class="slide-caption-num">02 / 06</div>
+                    <div class="slide-caption-text">Setting up the first shot — natural light through a north-facing
+                        window</div>
+                </div>
+                <div class="slide-progress" id="progress-1"></div>
+            </div>
+            <!-- SLIDE 3 -->
+            <div class="slide" data-caption="Director and camera — the quiet conversation before action">
+                <img src="P3.jpg" alt="Behind the scenes 3">
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                    <div class="slide-caption-num">03 / 06</div>
+                    <div class="slide-caption-text">Director and camera — the quiet conversation before action</div>
+                </div>
+                <div class="slide-progress" id="progress-2"></div>
+            </div>
+            <!-- SLIDE 4 -->
+            <div class="slide" data-caption="The corridor scene — forty minutes of perfect winter light, gone by 4pm">
+                <img src="P4.jpg" alt="Behind the scenes 4">
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                    <div class="slide-caption-num">04 / 06</div>
+                    <div class="slide-caption-text">The corridor scene — forty minutes of perfect winter light, gone by
+                        4pm</div>
+                </div>
+                <div class="slide-progress" id="progress-3"></div>
+            </div>
+            <!-- SLIDE 5 -->
+            <div class="slide" data-caption="Between takes — the crew shares a stillness that mirrors the film itself">
+                <img src="P5.jpg" alt="Behind the scenes 5">
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                    <div class="slide-caption-num">05 / 06</div>
+                    <div class="slide-caption-text">Between takes — the crew shares a stillness that mirrors the film
+                        itself</div>
+                </div>
+                <div class="slide-progress" id="progress-4"></div>
+            </div>
+            <!-- SLIDE 6 -->
+            <div class="slide" data-caption="Final day of shooting — the circle closes">
+                <img src="P6.jpg" alt="Behind the scenes 6">
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                    <div class="slide-caption-num">06 / 06</div>
+                    <div class="slide-caption-text">Final day of shooting — the circle closes</div>
+                </div>
+                <div class="slide-progress" id="progress-5"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="slide-controls">
+            <button class="slide-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+            <button class="slide-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+            <div class="slide-dots" id="dots"></div>
+            <div class="slide-counter" id="counter">01 / 06</div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Behnam Khosravi. All rights reserved.
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('dots');
+        const counter = document.getElementById('counter');
+        const DURATION = 10000;
+        let current = 0;
+        let timer = null;
+        let progressTimer = null;
+
+        // Build dots
+        slides.forEach((_, i) => {
+            const d = document.createElement('div');
+            d.className = 'dot' + (i === 0 ? ' active' : '');
+            d.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(d);
+        });
+
+        function getDots() { return document.querySelectorAll('.dot'); }
+
+        function startProgress(idx) {
+            const bar = document.getElementById('progress-' + idx);
+            if (!bar) return;
+            bar.style.transition = 'none';
+            bar.style.width = '0%';
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                bar.classList.add('running');
+            }));
+        }
+
+        function resetProgress(idx) {
+            const bar = document.getElementById('progress-' + idx);
+            if (!bar) return;
+            bar.classList.remove('running');
+            bar.style.width = '0%';
+        }
+
+        function goTo(idx) {
+            clearTimeout(timer);
+            resetProgress(current);
+            slides[current].classList.remove('active');
+            getDots()[current].classList.remove('active');
+
+            current = (idx + slides.length) % slides.length;
+
+            slides[current].classList.add('active');
+            getDots()[current].classList.add('active');
+            counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+
+            startProgress(current);
+            timer = setTimeout(() => goTo(current + 1), DURATION);
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+        // Keyboard
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') goTo(current - 1);
+            if (e.key === 'ArrowRight') goTo(current + 1);
+        });
+
+        // Start
+        goTo(0);
+    </script>
+</body>
+
+</html>
