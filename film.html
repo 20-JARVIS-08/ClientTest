@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDALA — Short Film by Behnam Khosravi | فیلم کوتاه ماندالا</title>
+    <meta name="description"
+        content="MANDALA is a psychological short film written, directed and starring Behnam Khosravi. A three-character drama exploring inner collapse and the death of hope. | ماندالا فیلم کوتاه روانشناختی به نویسندگی، کارگردانی و بازیگری بهنام خسروی">
+    <meta name="keywords"
+        content="Mandala film, Behnam Khosravi, short film, psychological drama, Iranian cinema, فیلم کوتاه ماندالا, بهنام خسروی, سینمای ایران, درام روانشناختی">
+
+    <link rel="alternate" hreflang="en" href="film.html?lang=en">
+    <link rel="alternate" hreflang="fa" href="film.html?lang=fa">
+    <link rel="alternate" hreflang="x-default" href="film.html">
+
+    <meta property="og:type" content="video.movie">
+    <meta property="og:title" content="MANDALA — Short Film by Behnam Khosravi">
+    <meta property="og:description"
+        content="A psychological short film exploring the inner collapse of people who are alive on the outside, but dead within.">
+    <meta property="og:image" content="poster2.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=Vazirmatn:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #070707;
+            --BH: rgba(238, 174, 77, 0.733);
+            --gold: #50401d;
+            --gold-soft: #dbb04a;
+            --text: #f3f3f3;
+            --muted: #a0a0a0;
+            --nav-height: 72px;
+            --section-px: clamp(5%, 8vw, 10%);
+            --section-py: clamp(60px, 10vw, 110px);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ── LANG SYSTEM ──────────────────────────── */
+        [data-en],
+        [data-fa] {
+            transition: opacity .25s;
+        }
+
+        body.lang-fa {
+            font-family: 'Vazirmatn', sans-serif;
+            direction: rtl;
+        }
+
+        body.lang-fa .film-hero-content,
+        body.lang-fa .section-title,
+        body.lang-fa .synopsis-text,
+        body.lang-fa .synopsis-quote,
+        body.lang-fa .dist-box,
+        body.lang-fa .team-desc,
+        body.lang-fa .detail-value {
+            text-align: right;
+        }
+
+        body.lang-fa .section-title {
+            border-left: none;
+            border-right: 2px solid var(--gold);
+            padding-left: 0;
+            padding-right: 18px;
+        }
+
+        body.lang-fa .film-hero-sub {
+            margin-right: 0;
+        }
+
+        /* Language toggle pill */
+        .lang-switcher {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 2000;
+            display: flex;
+            background: rgba(10, 10, 10, .9);
+            border: 1px solid rgba(184, 155, 94, .3);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .lang-btn {
+            padding: 10px 18px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-family: inherit;
+            transition: background .3s, color .3s;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            background: var(--gold-soft);
+            color: #000;
+            font-weight: 500;
+        }
+
+        .lang-btn:not(.active):hover {
+            color: var(--gold-soft);
+        }
+
+        .lang-sep {
+            width: 1px;
+            background: rgba(184, 155, 94, .2);
+            align-self: stretch;
+        }
+
+        .seo-content {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
+        /* ── NAVBAR ───────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--section-px);
+            background: rgba(5, 5, 5, .88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 155, 94, .18);
+            z-index: 1000;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 4vw, 32px);
+            letter-spacing: 3px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .back-link {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color .3s;
+            border: 1px solid rgba(184, 155, 94, .2);
+            padding: 8px 16px;
+        }
+
+        .back-link:hover {
+            color: var(--gold-soft);
+            border-color: var(--gold-soft);
+        }
+
+        /* ── HERO ─────────────────────────────────── */
+        .film-hero {
+            min-height: 100svh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding: calc(var(--nav-height) + 20px) var(--section-px) clamp(50px, 8vw, 100px);
+            position: relative;
+            background: linear-gradient(to top, rgba(7, 7, 7, 1) 0%, rgba(7, 7, 7, .65) 40%, rgba(7, 7, 7, .3) 100%),
+                url(poster_wide.jpg) center/cover no-repeat;
+        }
+
+        .film-hero-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .film-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(9px, 1vw, 11px);
+            letter-spacing: 6px;
+            color: var(--gold-soft);
+            opacity: .7;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .film-hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(52px, 12vw, 130px);
+            letter-spacing: clamp(8px, 2vw, 20px);
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            line-height: .95;
+            text-shadow: 0 0 60px rgba(184, 155, 94, .15);
+            margin-bottom: 20px;
+        }
+
+        .film-hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(16px, 2.2vw, 22px);
+            color: #ccc;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        body.lang-fa .film-hero-sub {
+            font-family: 'Vazirmatn', sans-serif;
+            font-style: normal;
+        }
+
+        .film-hero-meta {
+            display: flex;
+            gap: clamp(20px, 4vw, 40px);
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            font-family: 'Cinzel', serif;
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--gold-soft);
+            opacity: .55;
+            text-transform: uppercase;
+        }
+
+        body.lang-fa .meta-label {
+            font-family: 'Vazirmatn', sans-serif;
+            letter-spacing: 1px;
+            font-size: 10px;
+        }
+
+        .meta-value {
+            font-size: clamp(13px, 1.4vw, 15px);
+            color: #e0e0e0;
+            letter-spacing: .5px;
+        }
+
+        /* ── SECTIONS ─────────────────────────────── */
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 4vw, 46px);
+            margin-bottom: 30px;
+            border-left: 2px solid var(--gold);
+            padding-left: 18px;
+            color: var(--gold-soft);
+            line-height: 1.15;
+            text-transform: uppercase;
+        }
+
+        body.lang-fa .section-title {
+            font-family: 'Vazirmatn', sans-serif;
+            text-transform: none;
+        }
+
+        .trailer-section {
+            padding: var(--section-py) var(--section-px);
+            background: #050505;
+        }
+
+        .trailer-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 1px solid rgba(184, 155, 94, .2);
+            overflow: hidden;
+        }
+
+        .trailer-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ── SYNOPSIS + DETAILS ───────────────────── */
+        .synopsis-section {
+            padding: var(--section-py) var(--section-px);
+        }
+
+        .synopsis-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: clamp(40px, 6vw, 80px);
+            align-items: start;
+            margin-top: 10px;
+        }
+
+        .synopsis-text {
+            font-size: clamp(14px, 1.5vw, 17px);
+            line-height: 2;
+            color: #d0d0d0;
+        }
+
+        .synopsis-text p+p {
+            margin-top: 20px;
+        }
+
+        .synopsis-quote {
+            border-left: 2px solid rgba(219, 176, 74, .4);
+            padding: 20px 24px;
+            margin: 30px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(17px, 2vw, 22px);
+            color: var(--gold-soft);
+            line-height: 1.7;
+        }
+
+        body.lang-fa .synopsis-quote {
+            font-family: 'Vazirmatn', sans-serif;
+            font-style: normal;
+            border-left: none;
+            border-right: 2px solid rgba(219, 176, 74, .4);
+            padding-left: 0;
+            padding-right: 24px;
+        }
+
+        /* ── FILM DETAILS CARD ────────────────────── */
+        .film-details-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(184, 155, 94, .12);
+            padding: clamp(20px, 3vw, 32px);
+            position: sticky;
+            top: calc(var(--nav-height) + 20px);
+        }
+
+        .details-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(184, 155, 94, .12);
+        }
+
+        .details-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--gold-soft);
+            opacity: .6;
+            text-transform: uppercase;
+        }
+
+        body.lang-fa .details-card-title {
+            font-family: 'Vazirmatn', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .detail-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-row:first-child {
+            padding-top: 0;
+        }
+
+        .detail-label {
+            font-family: 'Cinzel', serif;
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--gold-soft);
+            opacity: .5;
+            text-transform: uppercase;
+        }
+
+        body.lang-fa .detail-label {
+            font-family: 'Vazirmatn', sans-serif;
+            letter-spacing: 1px;
+            font-size: 10px;
+        }
+
+        .detail-value {
+            font-size: clamp(13px, 1.4vw, 15px);
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* ── TEAM ─────────────────────────────────── */
+        .team-section {
+            padding: var(--section-py) var(--section-px);
+            background: #050505;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: 1px;
+            margin-top: 30px;
+            border: 1px solid rgba(184, 155, 94, .1);
+        }
+
+        .team-card {
+            background: #0d0d0d;
+            padding: clamp(20px, 3vw, 30px);
+            transition: background .3s;
+        }
+
+        .team-card:hover {
+            background: #111;
+        }
+
+        .team-role {
+            font-family: 'Cinzel', serif;
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--gold-soft);
+            opacity: .55;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        body.lang-fa .team-role {
+            font-family: 'Vazirmatn', sans-serif;
+            letter-spacing: 1px;
+            font-size: 10px;
+        }
+
+        .team-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(18px, 2.2vw, 24px);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .team-desc {
+            font-size: clamp(12px, 1.2vw, 13px);
+            color: var(--muted);
+            line-height: 1.85;
+        }
+
+        /* ── DISTRIBUTION ─────────────────────────── */
+        .dist-section {
+            padding: var(--section-py) var(--section-px);
+        }
+
+        .dist-box {
+            background: #0d0d0d;
+            border: 1px solid rgba(184, 155, 94, .15);
+            padding: clamp(24px, 4vw, 48px);
+            max-width: 750px;
+        }
+
+        .dist-box p {
+            font-size: clamp(14px, 1.5vw, 16px);
+            line-height: 1.9;
+            color: #c0c0c0;
+        }
+
+        .dist-box p+p {
+            margin-top: 18px;
+        }
+
+        .dist-box strong {
+            color: var(--gold-soft);
+            font-weight: 400;
+        }
+
+        /* ── FADE ─────────────────────────────────── */
+        .fade {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            padding: clamp(20px, 3vw, 35px);
+            text-align: center;
+            border-top: 1px solid #191919;
+            color: #666;
+            font-size: clamp(11px, 1.2vw, 13px);
+        }
+
+        /* ── RESPONSIVE ───────────────────────────── */
+        @media (max-width:820px) {
+            .synopsis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .film-details-card {
+                position: static;
+            }
+        }
+
+        @media (max-width:600px) {
+            .film-hero-title {
+                letter-spacing: 4px;
+            }
+
+            .film-hero-meta {
+                gap: 16px;
+            }
+
+            .lang-switcher {
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body class="lang-en">
+
+    <div class="seo-content" aria-hidden="true" lang="fa">
+        <h1>ماندالا — فیلم کوتاه بهنام خسروی</h1>
+        <p>ماندالا یک درام روانشناختی سه‌پرسوناله به نویسندگی، کارگردانی و بازیگری بهنام خسروی.</p>
+    </div>
+    <div class="seo-content" aria-hidden="true" lang="en">
+        <h1>MANDALA Short Film by Behnam Khosravi</h1>
+        <p>MANDALA is a psychological short film written directed and starring Behnam Khosravi.</p>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')" lang="en">EN</button>
+        <div class="lang-sep"></div>
+        <button class="lang-btn" id="btn-fa" onclick="setLang('fa')" lang="fa"
+            style="font-family:'Vazirmatn',sans-serif">FA</button>
+    </div>
+
+    <!-- NAVBAR — biography style -->
+    <nav>
+        <a href="index.html" class="logo">BK</a>
+        <a class="back-link" href="index.html" id="back-link">← Back to Home</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="film-hero">
+        <div class="film-hero-content fade">
+            <div class="film-hero-eyebrow" data-en="Short Film · 2025 · Tehran, Iran"
+                data-fa="فیلم کوتاه · ۱۴۰۴ · تهران، ایران">
+                Short Film · 2025 · Tehran, Iran
+            </div>
+            <h1 class="film-hero-title">Mandala</h1>
+            <p class="film-hero-sub"
+                data-en="A psychological drama about people who breathe, but have long since stopped living."
+                data-fa="درامی روانشناختی درباره آدم‌هایی که نفس می‌کشند، اما مدت‌هاست از درون مرده‌اند.">
+                A psychological drama about people who breathe, but have long since stopped living.
+            </p>
+            <div class="film-hero-meta">
+                <div class="meta-item">
+                    <span class="meta-label" data-en="Director" data-fa="کارگردان">Director</span>
+                    <span class="meta-value">Behnam Khosravi</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label" data-en="Genre" data-fa="ژانر">Genre</span>
+                    <span class="meta-value" data-en="Psychological Drama" data-fa="درام روانشناختی">Psychological
+                        Drama</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label" data-en="Format" data-fa="قالب">Format</span>
+                    <span class="meta-value" data-en="Single Location" data-fa="تک‌لوکیشن">Single Location</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label" data-en="Production" data-fa="تهیه‌کننده">Production</span>
+                    <span class="meta-value">Seven Sky (Sona Sky)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRAILER -->
+    <section class="trailer-section fade">
+        <h2 class="section-title" data-en="Trailer" data-fa="تیزر">Trailer</h2>
+        <div class="trailer-wrapper">
+            <video controls playsinline preload="metadata">
+                <source src="trailer.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- SYNOPSIS + DETAILS -->
+    <section class="synopsis-section fade">
+        <h2 class="section-title" data-en="Synopsis" data-fa="خلاصه داستان">Synopsis</h2>
+        <div class="synopsis-grid">
+            <div>
+                <div class="synopsis-text">
+                    <div data-lang="en">
+                        <p><strong style="color:var(--gold-soft)">MANDALA</strong> is a three-character psychological
+                            drama set within a single minimalist, surreal location. A challenging cinematic form — its
+                            focus rests entirely on the depth of performance, dramatic tension, and the dynamic of its
+                            script.</p>
+                        <div class="synopsis-quote">
+                            "A story of people who appear to be alive and breathing, but have long been considered dead
+                            inside."
+                        </div>
+                        <p>The film places its hand on a sensitive nerve of individual psychology: the story of people
+                            who, upon losing their greatest dream, hope, and the very measure of their existence, arrive
+                            at this point of collapse and inner death.</p>
+                        <p>The convergence of the writer-director's ethics-driven thinking with his background as a
+                            legal scholar and author of personal development books — his precise, structured,
+                            justice-oriented perspective — has been injected directly into the cinematic language of
+                            MANDALA, creating an atmosphere that is deeply compelling, layered, and distinctly original.
+                        </p>
+                        <p>Focusing on the complex layers of the human mind, MANDALA renders a psychological narrative
+                            that touches on a profound concept of human psychic life. The film was produced with a
+                            highly professional crew and experienced figures from Iranian cinema, aimed from the outset
+                            at international festival participation.</p>
+                    </div>
+                    <div data-lang="fa" style="display:none">
+                        <p><strong style="color:var(--gold-soft)">ماندالا (MANDALA)</strong> فیلمی سه‌پرسونال با حضور
+                            سه بازیگر است که در فضایی مینیمالیستی و به صورت تک‌لوکیشن و سوررئال روایت می‌شود؛ فرمی
+                            چالش‌برانگیز در سینما که تمرکز اصلی آن بر عمق بازی‌ها، تعلیق دراماتیک و پویایی متن استوار
+                            است.</p>
+                        <div class="synopsis-quote">
+                            «روایتی است از آدم‌هایی که در ظاهر زنده هستند و نفس می‌کشند، اما از درون خیلی وقت است که
+                            مرده محسوب می‌شوند.»
+                        </div>
+                        <p>این اثر دست روی نقطه‌ای حساس از روانشناسی فردی می‌گذارد: روایت انسان‌هایی که وقتی بزرگ‌ترین
+                            آرزو، امید و ملاک زندگی خود را از دست می‌دهند، به این نقطه از فروپاشی و مرگ درونی می‌رسند.
+                        </p>
+                        <p>تلاقی تفکر نویسنده و کارگردان اخلاق‌مدار اثر با رویکرد تفکری حقوقی و روانشناختی او به عنوان
+                            مؤلف کتاب‌های توسعه فردی، اتمسفر این فیلم را بسیار جذاب، عمیق و متمایز کرده است.</p>
+                        <p>این فیلم با تمرکز بر لایه‌های پیچیده ذهن انسان، روایتی روانشناختی را به تصویر می‌کشد.
+                            فیلم‌برداری ماندالا پس از طی مراحل پیش‌تولید فشرده، در تهران به پایان رسیده و وارد مراحل فنی
+                            شده است.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="film-details-card">
+                <div class="details-card-header">
+                    <span class="details-card-title" data-en="Film Details" data-fa="مشخصات فیلم">Film Details</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Written & Directed by" data-fa="نویسنده و کارگردان">Written &
+                        Directed by</span>
+                    <span class="detail-value">Behnam Khosravi / بهنام خسروی</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Cast" data-fa="بازیگران">Cast</span>
+                    <span class="detail-value">
+                        Behnam Khosravi / بهنام خسروی<br>
+                        Malihe Rahmani / ملیحه رحمانی<br>
+                        Afroz Afshar / افروز افشار
+                    </span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Cinematography" data-fa="مدیر فیلمبرداری">Cinematography</span>
+                    <span class="detail-value">Keyvan Shabani / کیوان شعبانی</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Executive Producer" data-fa="مدیر اجرایی تولید">Executive
+                        Producer</span>
+                    <span class="detail-value">Ehsan Mousavian / احسان موسویان</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Production Coordinator" data-fa="برنامه‌ریز">Production
+                        Coordinator</span>
+                    <span class="detail-value">Reyhaneh Amini / ریحانه امینی</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Production House" data-fa="مجری طرح">Production House</span>
+                    <span class="detail-value">
+                        Seven Sky (Sona Sky)<br>
+                        <span style="color:var(--muted);font-size:12px" data-en="Dir. Shahab Hosseini"
+                            data-fa="مدیر: شهاب حسینی">Dir. Shahab Hosseini</span>
+                    </span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="International Distribution" data-fa="مدیر پخش">International
+                        Distribution</span>
+                    <span class="detail-value">Kamran Mohammadi / کامران محمدی</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label" data-en="Status" data-fa="وضعیت">Status</span>
+                    <span class="detail-value" data-en="Post-Production"
+                        data-fa="پس از تولید (مراحل فنی)">Post-Production</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section fade">
+        <h2 class="section-title" data-en="Cast & Crew" data-fa="عوامل فیلم">Cast & Crew</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-role" data-en="Writer · Director · Actor" data-fa="نویسنده · کارگردان · بازیگر">Writer
+                    · Director · Actor</div>
+                <div class="team-name">Behnam Khosravi</div>
+                <div class="team-desc">
+                    <span data-lang="en">In addition to writing the screenplay and directing the project, Khosravi also
+                        appears as one of the three principal cast members. A trained lawyer and active author in
+                        literature and psychology.</span>
+                    <span data-lang="fa" style="display:none">بهنام خسروی علاوه بر نگارش فیلم‌نامه و هدایت پروژه در مقام
+                        کارگردان، به عنوان یکی از بازیگران اصلی نیز در جلوی دوربین ظاهر شده است. حقوقدانی با تحصیلات
+                        عالی و نویسنده‌ای فعال در حوزه ادبیات و روانشناسی.</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-role" data-en="Lead Actress" data-fa="بازیگر">Lead Actress</div>
+                <div class="team-name">Malihe Rahmani</div>
+                <div class="team-desc">
+                    <span data-lang="en">A skilled actress who plays a key role, carrying a significant portion of the
+                        dramatic and psychological weight of the single-location film.</span>
+                    <span data-lang="fa" style="display:none">از بازیگران توانمند این اثر سه‌پرسونال است که با ایفای
+                        نقشی کلیدی، بخشی از بار دراماتیک و روانی داستان تک‌لوکیشن فیلم را به دوش می‌کشد.</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-role" data-en="Lead Actress" data-fa="بازیگر">Lead Actress</div>
+                <div class="team-name">Afroz Afshar</div>
+                <div class="team-desc">
+                    <span data-lang="en">Her performance completes the complex human relationships in this work, playing
+                        a significant role in advancing the psychological tensions of the film.</span>
+                    <span data-lang="fa" style="display:none">نقش‌آفرینی او در کنار دیگر بازیگران، تکمیل‌کننده روابط
+                        پیچیده انسانی در این اثر است و بازی او تأثیر بسزایی در پیشبرد تعلیق‌های روانشناختی فیلم
+                        دارد.</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-role" data-en="Director of Photography" data-fa="مدیر فیلمبرداری">Director of
+                    Photography</div>
+                <div class="team-name">Keyvan Shabani</div>
+                <div class="team-desc">
+                    <span data-lang="en">Shabani's cinematographic approach and innovative lighting played a key role in
+                        conveying the inner sense of confinement and the psychological atmosphere of the work.</span>
+                    <span data-lang="fa" style="display:none">مدیریت فیلمبرداری شعبانی و خلق نورپردازی‌های خلاقانه و
+                        قاب‌بندی‌های خاص او، نقش مهمی در القای حس خفقان درونی و فضای روانشناختی اثر ایفا کرده
+                        است.</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-role" data-en="Executive Producer" data-fa="مدیر اجرایی تولید">Executive Producer</div>
+                <div class="team-name">Ehsan Mousavian</div>
+                <div class="team-desc">
+                    <span data-lang="en">Overseeing logistics, intensive pre-production coordination, and optimal
+                        management of the financial and human resources of the professional MANDALA team.</span>
+                    <span data-lang="fa" style="display:none">هدایت امور لجستیکی، هماهنگی‌های فشرده پیش‌تولید و مدیریت
+                        بهینه منابع مالی و انسانی تیم حرفه‌ای ماندالا توسط او انجام شده است.</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-role" data-en="Production Coordinator" data-fa="برنامه‌ریز">Production Coordinator
+                </div>
+                <div class="team-name">Reyhaneh Amini</div>
+                <div class="team-desc">
+                    <span data-lang="en">Precise scheduling of filming sessions and coherent coordination between
+                        technical crew and cast to ensure the uninterrupted progress of the project.</span>
+                    <span data-lang="fa" style="display:none">تنظیم دقیق جدول زمان‌بندی فیلم‌برداری و هماهنگی منسجم میان
+                        عوامل فنی و بازیگران برای پیشبرد بدون وقفه پروژه، از وظایف کلیدی او در این اثر بوده است.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISTRIBUTION -->
+    <section class="dist-section fade">
+        <h2 class="section-title" data-en="Festival & Distribution" data-fa="جشنواره و پخش">Festival & Distribution</h2>
+        <div class="dist-box">
+            <div data-lang="en">
+                <p>MANDALA was produced with the aim of participating in prestigious international film festivals. Given
+                    the film's structural potential, single-location format, and universal thematic scope, it targets
+                    <strong>Category A international festivals</strong>.
+                </p>
+                <p>The project is executed by <strong>Seven Sky (Sona Sky)</strong>, an international institute under
+                    the direction of <strong>Shahab Hosseini</strong> — a celebrated artist and Cannes Award winner.
+                    International distribution and release strategy is managed under the same institute by
+                    <strong>Kamran Mohammadi</strong>.
+                </p>
+                <p>With this team's international approach, MANDALA is expected to soon begin its successful journey
+                    through the world's top-tier festivals.</p>
+            </div>
+            <div data-lang="fa" style="display:none">
+                <p>فیلم کوتاه ماندالا با توجه به پتانسیل‌های ساختاری، فرم تک‌لوکیشن و تم جهانی‌اش، با هدف شرکت در
+                    جشنواره‌های معتبر خارجی تولید شده است و هدف آن حضور در <strong>جشنواره‌های دسته الف جهانی</strong>
+                    است.</p>
+                <p>مجری طرح این پروژه مؤسسه بین‌المللی <strong>سونا اسکای (Seven Sky)</strong> به مدیریت <strong>شهاب
+                        حسینی</strong>، هنرمند سرشناس و برنده جایزه کن، است و بخش پخش و توزیع بین‌المللی فیلم نیز زیر
+                    نظر همین مؤسسه و به مدیریت <strong>کامران محمدی</strong> انجام می‌شود.</p>
+                <p>انتظار می‌رود با توجه به رویکرد بین‌المللی این تیم، ماندالا به زودی مسیر موفق خود را در فستیوال‌های
+                    الف جهانی آغاز کند.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Behnam Khosravi. All rights reserved. | Built by J.A.R.V.I.S
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            const body = document.body;
+            const htmlEl = document.getElementById('html-root');
+            const isFA = lang === 'fa';
+
+            body.className = 'lang-' + lang;
+            htmlEl.setAttribute('lang', lang);
+
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            history.replaceState(null, '', url.toString());
+
+            if (isFA) {
+                document.title = 'ماندالا — فیلم کوتاه بهنام خسروی';
+                document.querySelector('meta[name="description"]').content = 'ماندالا فیلم کوتاه روانشناختی به نویسندگی، کارگردانی و بازیگری بهنام خسروی. سه بازیگر، تک‌لوکیشن، درامی درباره مرگ درونی و فروپاشی امید.';
+            } else {
+                document.title = 'MANDALA — Short Film by Behnam Khosravi';
+                document.querySelector('meta[name="description"]').content = 'MANDALA is a psychological short film written, directed and starring Behnam Khosravi. Three characters, single location drama about inner collapse and the death of hope.';
+            }
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = isFA ? el.getAttribute('data-fa') : el.getAttribute('data-en');
+            });
+
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+            });
+
+            document.getElementById('btn-en').classList.toggle('active', !isFA);
+            document.getElementById('btn-fa').classList.toggle('active', isFA);
+
+            document.querySelector('.lang-btn.active').style.fontFamily =
+                isFA ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+
+            // Update back link text for RTL
+            const backLink = document.getElementById('back-link');
+            backLink.textContent = isFA ? 'بازگشت به خانه ←' : '← Back to Home';
+
+            localStorage.setItem('bk-lang', lang);
+        }
+
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const saved = params.get('lang') || localStorage.getItem('bk-lang') || 'en';
+            if (saved === 'fa') setLang('fa');
+        })();
+
+        const fades = document.querySelectorAll('.fade');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+        }, { threshold: 0.08 });
+        fades.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
