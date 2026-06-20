@@ -299,30 +299,135 @@
             text-transform: uppercase;
         }
 
-        /* AWARD IMAGE — vertical, click to lightbox */
-        .award-image-wrap {
-            width: 100%;
-            max-width: 340px;
-            margin: 0 auto 20px;
-            aspect-ratio: 3/4;
-            background: #111;
-            border: 1px solid rgba(255, 255, 255, .06);
-            overflow: hidden;
-            cursor: zoom-in;
+        /* AWARD CAROUSEL — 3 photos, active slide centered, click to enlarge */
+        .award-carousel {
             position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto 16px;
+            height: clamp(250px, 32vw, 340px);
         }
 
-        .award-image-wrap img {
+        .carousel-stage {
+            position: relative;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            object-position: center;
-            display: block;
-            transition: transform .4s;
         }
 
-        .award-card:hover .award-image-wrap img {
-            transform: scale(1.02);
+        .carousel-slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 58%;
+            height: 100%;
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, .07);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform .55s cubic-bezier(.22, .61, .36, 1), opacity .55s, filter .5s, border-color .3s;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .carousel-slide.is-prev {
+            transform: translate(-148%, -50%) scale(.72);
+            z-index: 2;
+            opacity: .4;
+            filter: brightness(.55) saturate(.75);
+        }
+
+        .carousel-slide.is-next {
+            transform: translate(48%, -50%) scale(.72);
+            z-index: 2;
+            opacity: .4;
+            filter: brightness(.55) saturate(.75);
+        }
+
+        .carousel-slide.is-active {
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 4;
+            opacity: 1;
+            cursor: zoom-in;
+            border-color: rgba(219, 176, 74, .45);
+            filter: none;
+        }
+
+        .carousel-slide.is-prev:hover,
+        .carousel-slide.is-next:hover {
+            opacity: .68;
+            filter: brightness(.8) saturate(.9);
+        }
+
+        .carousel-slide:focus-visible {
+            outline: 2px solid var(--gold-soft);
+            outline-offset: 2px;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .55);
+            border: 1px solid rgba(219, 176, 74, .35);
+            color: var(--gold-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: background .25s, border-color .25s;
+            padding: 0;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(219, 176, 74, .18);
+            border-color: var(--gold-soft);
+        }
+
+        .carousel-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .carousel-arrow.prev {
+            left: -4px;
+        }
+
+        .carousel-arrow.next {
+            right: -4px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(219, 176, 74, .25);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background .25s, transform .25s;
+        }
+
+        .carousel-dot.is-current {
+            background: var(--gold-soft);
+            transform: scale(1.35);
         }
 
         .award-zoom-hint {
@@ -342,7 +447,11 @@
             text-transform: uppercase;
         }
 
-        .award-image-wrap:hover .award-zoom-hint {
+        .carousel-slide:not(.is-active) .award-zoom-hint {
+            display: none;
+        }
+
+        .carousel-slide.is-active:hover .award-zoom-hint {
             opacity: 1;
         }
 
@@ -360,16 +469,17 @@
         }
 
         .award-image-placeholder svg {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             opacity: .3;
             fill: var(--gold-soft);
         }
 
         .award-image-placeholder p {
-            font-size: 12px;
-            letter-spacing: 1px;
+            font-size: 11px;
+            letter-spacing: .5px;
             opacity: .5;
+            line-height: 1.5;
         }
 
         .award-title {
@@ -385,6 +495,10 @@
             color: #b0b0b0;
             line-height: 1.85;
             margin-bottom: 18px;
+        }
+
+        .award-body p+p {
+            margin-top: 14px;
         }
 
         .award-link {
@@ -459,11 +573,44 @@
             align-items: center;
             justify-content: center;
             transition: background .2s;
-            z-index: 9001;
+            z-index: 9002;
         }
 
         .lightbox-close:hover {
             background: #2a2a2a;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .55);
+            border: 1px solid rgba(219, 176, 74, .3);
+            color: var(--gold-soft);
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9001;
+            transition: background .25s, border-color .25s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(219, 176, 74, .18);
+            border-color: var(--gold-soft);
+        }
+
+        .lightbox-nav.prev {
+            left: -54px;
+        }
+
+        .lightbox-nav.next {
+            right: -54px;
         }
 
         .lightbox-caption {
@@ -684,8 +831,48 @@
                 gap: 16px;
             }
 
-            .award-image-wrap {
-                max-width: 260px;
+            .award-carousel {
+                max-width: 300px;
+                height: 230px;
+            }
+
+            .carousel-slide {
+                width: 62%;
+            }
+
+            .carousel-arrow {
+                width: 30px;
+                height: 30px;
+            }
+
+            .carousel-arrow.prev {
+                left: -2px;
+            }
+
+            .carousel-arrow.next {
+                right: -2px;
+            }
+
+            .lightbox-nav {
+                width: 34px;
+                height: 34px;
+                font-size: 18px;
+            }
+
+            .lightbox-nav.prev {
+                left: 4px;
+            }
+
+            .lightbox-nav.next {
+                right: 4px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .fade,
+            .carousel-slide {
+                transition: none !important;
             }
         }
     </style>
@@ -697,6 +884,8 @@
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Award image viewer">
         <div class="lightbox-inner">
             <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+            <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+            <button class="lightbox-nav next" id="lightbox-next" aria-label="Next photo">›</button>
             <img id="lightbox-img" src="" alt="Award certificate">
             <div class="lightbox-caption">Accolade Global Film Competition</div>
         </div>
@@ -756,17 +945,64 @@
                         </svg>
                         <span class="award-badge-text">Award Winner</span>
                     </div>
-                    <div class="award-image-wrap" id="award-trigger" role="button" tabindex="0"
-                        aria-label="Click to enlarge award certificate">
-                        <img src="Images/award-accolade.jpg"
-                            alt="MANDALA — Accolade Global Film Competition Award Certificate" loading="lazy"
-                            onerror="this.closest('.award-image-wrap').innerHTML='<div class=\'award-image-placeholder\'><svg viewBox=\'0 0 24 24\'><path d=\'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\'/></svg><p>Upload award image<br>to Images/award-accolade.jpg</p></div>'">
-                        <div class="award-zoom-hint">Click to zoom</div>
+
+                    <!-- CAROUSEL: 3 photos — active slide centered, others docked left/right -->
+                    <div class="award-carousel" id="award-carousel" aria-roledescription="carousel"
+                        aria-label="MANDALA award photos">
+                        <div class="carousel-stage" id="carousel-stage">
+                            <div class="carousel-slide" data-index="0" role="button" tabindex="0"
+                                aria-label="Award photo 1 of 3, the certificate. Currently shown — click to enlarge.">
+                                <img src="Images/award-accolade.jpg"
+                                    alt="MANDALA — Accolade Global Film Competition Award Certificate" loading="lazy"
+                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                <div class="award-zoom-hint">Click to zoom</div>
+                            </div>
+                            <div class="carousel-slide" data-index="1" role="button" tabindex="0"
+                                aria-label="Award photo 2 of 3 — click to view">
+                                <img src="Images/award-accolade-2.jpg"
+                                    alt="MANDALA — Accolade Global Film Competition, award photo" loading="lazy"
+                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-2.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                <div class="award-zoom-hint">Click to zoom</div>
+                            </div>
+                            <div class="carousel-slide" data-index="2" role="button" tabindex="0"
+                                aria-label="Award photo 3 of 3 — click to view">
+                                <img src="Images/award-accolade-3.jpg"
+                                    alt="MANDALA — Accolade Global Film Competition, recognition photo" loading="lazy"
+                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-3.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                <div class="award-zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <button class="carousel-arrow prev" id="carousel-prev" aria-label="Previous award photo">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                        </button>
+                        <button class="carousel-arrow next" id="carousel-next" aria-label="Next award photo">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                            </svg>
+                        </button>
                     </div>
+                    <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Select award photo">
+                        <button class="carousel-dot" data-index="0" aria-label="Show photo 1"></button>
+                        <button class="carousel-dot" data-index="1" aria-label="Show photo 2"></button>
+                        <button class="carousel-dot" data-index="2" aria-label="Show photo 3"></button>
+                    </div>
+
                     <h3 class="award-title">Accolade Global Film Competition</h3>
-                    <p class="award-body">MANDALA has been recognized by the Accolade Global Film Competition — one of
-                        the most respected international competitions honoring excellence in film, television, and
-                        documentary production worldwide.</p>
+                    <div class="award-body">
+                        <p>MANDALA has received an Award of Recognition from the <strong
+                                style="color:var(--gold-soft)">Accolade Global Film Competition</strong> — a
+                            U.S.-based juried competition built specifically for independent storytellers, drawing
+                            entries from filmmakers in more than seventy countries. Running since 2003 and named by
+                            MovieMaker Magazine as one of the festivals worth the entry fee, Accolade is IMDb-qualified,
+                            and past honorees have gone on to receive Oscar, Emmy, and Telly recognition.</p>
+                        <p>For a three-character chamber piece built almost entirely on restraint, silence, and
+                            psychological tension, this win is more than a credit line — it is early, outside
+                            validation that the film's portrait of inner collapse reaches an international jury just as
+                            powerfully as intended. It marks the opening credential of MANDALA's festival run, with
+                            Category A submissions now underway.</p>
+                    </div>
                     <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
                         rel="noopener noreferrer" aria-label="Visit Accolade Global Film Competition website">
                         Visit Accolade
@@ -913,40 +1149,97 @@
     </footer>
 
     <script>
-        // Fade-in
+        // Fade-in on scroll
         const fades = document.querySelectorAll('.fade');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
         }, { threshold: 0.08 });
         fades.forEach(el => observer.observe(el));
 
-        // Lightbox
-        const lightbox = document.getElementById('lightbox');
-        const lbImg = document.getElementById('lightbox-img');
-        const lbClose = document.getElementById('lightbox-close');
-        const trigger = document.getElementById('award-trigger');
+        // ---- Award carousel + lightbox ----
+        (function () {
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            let active = 0;
 
-        function openLightbox() {
-            const src = trigger.querySelector('img');
-            if (!src) return;
-            lbImg.src = src.src;
-            lbImg.alt = src.alt;
-            lightbox.classList.add('open');
-            document.body.style.overflow = 'hidden';
-            lbClose.focus();
-        }
-        function closeLightbox() {
-            lightbox.classList.remove('open');
-            document.body.style.overflow = '';
-        }
+            function render() {
+                slides.forEach((el, i) => {
+                    el.classList.remove('is-active', 'is-prev', 'is-next');
+                    const offset = (i - active + slides.length) % slides.length;
+                    if (offset === 0) el.classList.add('is-active');
+                    else if (offset === 1) el.classList.add('is-next');
+                    else el.classList.add('is-prev');
+                    el.setAttribute('aria-current', offset === 0 ? 'true' : 'false');
+                });
+                dots.forEach((d, i) => d.classList.toggle('is-current', i === active));
+            }
 
-        if (trigger) {
-            trigger.addEventListener('click', openLightbox);
-            trigger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(); } });
-        }
-        lbClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+            function goTo(i) {
+                active = (i + slides.length) % slides.length;
+                render();
+            }
+
+            slides.forEach((el, i) => {
+                el.addEventListener('click', () => {
+                    if (el.classList.contains('is-active')) openLightbox(i);
+                    else goTo(i);
+                });
+                el.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (el.classList.contains('is-active')) openLightbox(i);
+                        else goTo(i);
+                    }
+                });
+            });
+
+            if (prevBtn) prevBtn.addEventListener('click', () => goTo(active - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => goTo(active + 1));
+            dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+            render();
+
+            // Lightbox
+            const lightbox = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            const lbClose = document.getElementById('lightbox-close');
+            const lbPrev = document.getElementById('lightbox-prev');
+            const lbNext = document.getElementById('lightbox-next');
+
+            function updateLightboxImg() {
+                const img = slides[active].querySelector('img');
+                if (!img) return;
+                lbImg.src = img.src;
+                lbImg.alt = img.alt;
+            }
+
+            function openLightbox(index) {
+                goTo(index);
+                updateLightboxImg();
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                lbClose.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            lbClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+            if (lbPrev) lbPrev.addEventListener('click', () => { goTo(active - 1); updateLightboxImg(); });
+            if (lbNext) lbNext.addEventListener('click', () => { goTo(active + 1); updateLightboxImg(); });
+
+            document.addEventListener('keydown', e => {
+                if (!lightbox.classList.contains('open')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') { goTo(active - 1); updateLightboxImg(); }
+                if (e.key === 'ArrowRight') { goTo(active + 1); updateLightboxImg(); }
+            });
+        })();
     </script>
 </body>
 

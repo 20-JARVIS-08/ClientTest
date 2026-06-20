@@ -620,8 +620,11 @@
             border: 1px solid rgba(184, 155, 94, .15);
             border-radius: 12px;
             display: flex;
-            gap: 22px;
-            padding: 24px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            padding: 28px 24px;
             transition: all .45s ease;
             overflow: hidden;
             position: relative;
@@ -637,6 +640,7 @@
             background: linear-gradient(135deg, rgba(219, 176, 74, .06), transparent 40%);
             opacity: 0;
             transition: .4s;
+            pointer-events: none;
         }
 
         .book-card:hover {
@@ -650,13 +654,14 @@
         }
 
         .book-cover {
-            width: 110px;
-            min-width: 110px;
-            height: 165px;
+            width: 130px;
+            min-width: 130px;
+            height: 195px;
             border-radius: 8px;
             overflow: hidden;
             position: relative;
             border: 1px solid rgba(219, 176, 74, .2);
+            margin: 0 auto;
         }
 
         .book-cover img {
@@ -672,6 +677,9 @@
 
         .book-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .book-tag {
@@ -693,7 +701,7 @@
         .book-subtitle {
             font-family: 'Vazirmatn', serif;
             font-weight: 500;
-            font-size: clamp(12px, 1.3vw, 14px);
+            font-size: clamp(11px, 1.1vw, 12px);
             color: var(--muted);
             line-height: 1.6;
         }
@@ -710,6 +718,28 @@
             color: var(--muted);
             line-height: 1.8;
             margin-top: 8px;
+        }
+
+        .book-buy-link {
+            display: inline-block;
+            margin-top: 14px;
+            font-family: 'Vazirmatn', serif;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: .3px;
+            color: var(--gold-soft);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(219, 176, 74, .35);
+            padding-bottom: 2px;
+            transition: border-color .3s, color .3s;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .book-buy-link:hover {
+            color: #fff;
+            border-color: var(--gold-soft);
         }
 
         /* ─── CONTACT ────────────────────────────── */
@@ -842,12 +872,9 @@
                 justify-content: center;
             }
 
-            .book-card {
-                flex-direction: column;
-            }
-
             .book-cover {
-                width: 80px;
+                width: 100px;
+                height: 150px;
             }
         }
 
@@ -979,9 +1006,11 @@
                 <div class="book-info">
                     <div class="book-tag">اثر منتشرشده · جلد یکم</div>
                     <div class="book-title">شکوفه‌های مرداب</div>
-                    <div class="book-subtitle">ژانر</div>
+                    <div class="book-subtitle">رمان اجتماعی، خانوادگی، تاریخی</div>
                     <div class="book-year">۲۰۲۵</div>
-                    <div class="book-desc">کاوشی عمیق در تاب‌آوری، ایمان و جوهره‌ی واقعی انسانیت.</div>
+                    <div class="book-desc">شکوفه‌هایی که در دل رنج می‌رویند؛ روایت نسلی که از مردابِ سختی‌ها، معنای
+                        زندگی را می‌آموزد.</div>
+                    <a href="#" class="book-buy-link" target="_blank" rel="noopener noreferrer">خرید کتاب ←</a>
                 </div>
             </div>
             <div class="book-card">
@@ -992,9 +1021,11 @@
                 <div class="book-info">
                     <div class="book-tag">اثر منتشرشده · جلد دوم</div>
                     <div class="book-title">غریبستان</div>
-                    <div class="book-subtitle">ژانر</div>
+                    <div class="book-subtitle"> فلسفی، اگزیستانسیال، حکایت‌نامه</div>
                     <div class="book-year">۲۰۲۵</div>
-                    <div class="book-desc">توضیح کوتاه</div>
+                    <div class="book-desc">روایتِ مسافری در جستجوی خانه‌ای که شاید هرگز ترک نکرده باشد.</div>
+                    <a href="https://www.iranketab.ir/book/158729-the-city-of-strangers" class="book-buy-link"
+                        target="_blank" rel="noopener noreferrer">خرید کتاب ←</a>
                 </div>
             </div>
             <div class="book-card">
@@ -1004,9 +1035,11 @@
                 <div class="book-info">
                     <div class="book-tag">اثر منتشرشده · جلد سوم</div>
                     <div class="book-title">منشور اخلاق بشر</div>
-                    <div class="book-subtitle">ژانر</div>
+                    <div class="book-subtitle">فلسفه اخلاق، حقوق، سیاست</div>
                     <div class="book-year">۲۰۲۶</div>
-                    <div class="book-desc">توضیح کوتاه</div>
+                    <div class="book-desc">دعوتی به بازگشتِ انسانیت؛ جایی که اخلاق، راهنمای قانون و سیاست می‌شود.</div>
+                    <a href="https://www.iranketab.ir/book/159802-code-of-human-ethics" class="book-buy-link"
+                        target="_blank" rel="noopener noreferrer">خرید کتاب ←</a>
                 </div>
             </div>
         </div>

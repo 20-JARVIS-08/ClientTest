@@ -623,8 +623,11 @@
             border: 1px solid rgba(184, 155, 94, .15);
             border-radius: 12px;
             display: flex;
-            gap: 22px;
-            padding: 24px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            padding: 28px 24px;
             transition: all .45s ease;
             overflow: hidden;
             position: relative;
@@ -653,13 +656,14 @@
         }
 
         .book-cover {
-            width: 110px;
-            min-width: 110px;
-            height: 165px;
+            width: 130px;
+            min-width: 130px;
+            height: 195px;
             border-radius: 8px;
             overflow: hidden;
             position: relative;
             border: 1px solid rgba(219, 176, 74, .2);
+            margin: 0 auto;
         }
 
         .book-cover img {
@@ -675,6 +679,9 @@
 
         .book-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .book-tag {
@@ -696,7 +703,7 @@
         .book-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: clamp(12px, 1.3vw, 14px);
+            font-size: clamp(11px, 1.1vw, 12px);
             color: var(--muted);
             line-height: 1.5;
         }
@@ -845,12 +852,9 @@
                 justify-content: center;
             }
 
-            .book-card {
-                flex-direction: column;
-            }
-
             .book-cover {
-                width: 80px;
+                width: 100px;
+                height: 150px;
             }
         }
 
@@ -982,10 +986,10 @@
                 <div class="book-info">
                     <div class="book-tag">Published Work · Vol. I</div>
                     <div class="book-title">Swamp Blossoms</div>
-                    <div class="book-subtitle">Genre</div>
+                    <div class="book-subtitle">Social Drama</div>
                     <div class="book-year">2025</div>
-                    <div class="book-desc">A profound exploration of resilience, faith, and the true essence of
-                        humanity.</div>
+                    <div class="book-desc">Blossoms rising from suffering; a story of generations finding meaning amid
+                        life's hardships.</div>
                 </div>
             </div>
             <div class="book-card">
@@ -996,10 +1000,10 @@
                 <div class="book-info">
                     <div class="book-tag">Published Work · Vol. II</div>
                     <div class="book-title">The Strangerland</div>
-                    <div class="book-subtitle">Genre</div>
+                    <div class="book-subtitle">Philosophical Fiction</div>
                     <div class="book-year">2025</div>
-                    <div class="book-desc">A brief description of this book — its themes, what it explores, and what
-                        makes it distinct. Replace with the actual synopsis.</div>
+                    <div class="book-desc">The journey of a wanderer searching for a home that may have never been lost.
+                    </div>
                 </div>
             </div>
             <div class="book-card">
@@ -1009,9 +1013,9 @@
                 <div class="book-info">
                     <div class="book-tag">Published Work · Vol. III</div>
                     <div class="book-title">The Charter of Human Ethics</div>
-                    <div class="book-subtitle">Genre</div>
+                    <div class="book-subtitle">Ethics & Politics</div>
                     <div class="book-year">2026</div>
-                    <div class="book-desc">Brief synopsis of the book. Replace this text with the actual description.
+                    <div class="book-desc">A call to rediscover humanity, where ethics guides law and politics.
                     </div>
                 </div>
             </div>
