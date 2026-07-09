@@ -46,20 +46,10 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Vazirmatn:wght@300;400;500&display=swap"
         rel="stylesheet">
 
-
-
-
-
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-
-
-
-
-
 
     <style>
         :root {
@@ -93,7 +83,6 @@
             direction: rtl;
         }
 
-        /* NAV */
         nav {
             position: fixed;
             top: 0;
@@ -154,7 +143,6 @@
             border-color: var(--gold-soft);
         }
 
-        /* HERO */
         .film-hero {
             min-height: 100svh;
             display: flex;
@@ -231,7 +219,6 @@
             color: #e0e0e0;
         }
 
-        /* SECTION TITLE */
         .section-title {
             font-family: 'Vazirmatn', sans-serif;
             font-size: clamp(24px, 3.5vw, 40px);
@@ -244,7 +231,6 @@
             line-height: 1.15;
         }
 
-        /* TRAILER */
         .trailer-section {
             padding: var(--section-py) var(--section-px);
             background: #050505;
@@ -266,7 +252,6 @@
             display: block;
         }
 
-        /* AWARDS */
         .awards-section {
             padding: var(--section-py) var(--section-px);
         }
@@ -323,7 +308,6 @@
             opacity: .75;
         }
 
-        /* AWARD CAROUSEL — ۳ عکس، اسلاید فعال در وسط، بقیه کنار آن (مسیر RTL آینه شده) */
         .award-carousel {
             position: relative;
             width: 100%;
@@ -359,7 +343,6 @@
             display: block;
         }
 
-        /* در راست‌به‌چپ: اسلاید «قبلی» سمت راست می‌ماند، اسلاید «بعدی» به چپ می‌رود */
         .carousel-slide.is-prev {
             transform: translate(48%, -50%) scale(.72);
             z-index: 2;
@@ -424,7 +407,6 @@
             fill: currentColor;
         }
 
-        /* دکمه «قبلی» سمت راست (جایی که اسلاید قبلی نشسته)، دکمه «بعدی» سمت چپ */
         .carousel-arrow.prev {
             right: -4px;
         }
@@ -548,7 +530,6 @@
             fill: currentColor;
         }
 
-        /* LIGHTBOX */
         .lightbox {
             display: none;
             position: fixed;
@@ -626,7 +607,6 @@
             border-color: var(--gold-soft);
         }
 
-        /* مسیر آینه‌ای: «قبلی» راست، «بعدی» چپ */
         .lightbox-nav.prev {
             right: -54px;
         }
@@ -647,7 +627,6 @@
             opacity: .6;
         }
 
-        /* SYNOPSIS */
         .synopsis-section {
             padding: var(--section-py) var(--section-px);
             background: #050505;
@@ -683,7 +662,6 @@
             text-align: right;
         }
 
-        /* DETAILS CARD */
         .film-details-card {
             background: #0d0d0d;
             border: 1px solid rgba(184, 155, 94, .12);
@@ -736,7 +714,6 @@
             line-height: 1.6;
         }
 
-        /* TEAM */
         .team-section {
             padding: var(--section-py) var(--section-px);
         }
@@ -790,7 +767,6 @@
             line-height: 1.9;
         }
 
-        /* DISTRIBUTION */
         .dist-section {
             padding: var(--section-py) var(--section-px);
             background: #050505;
@@ -819,7 +795,6 @@
             font-weight: 400;
         }
 
-        /* FADE */
         .fade {
             opacity: 0;
             transform: translateY(35px);
@@ -915,7 +890,7 @@
             <button class="lightbox-nav prev" id="lightbox-prev" aria-label="عکس قبلی">›</button>
             <button class="lightbox-nav next" id="lightbox-next" aria-label="عکس بعدی">‹</button>
             <img id="lightbox-img" src="" alt="گواهی جایزه">
-            <div class="lightbox-caption">Accolade Global Film Competition</div>
+            <div class="lightbox-caption" id="lightbox-caption">Accolade Global Film Competition</div>
         </div>
     </div>
 
@@ -977,9 +952,9 @@
                     </div>
 
                     <!-- اسلایدر سه‌عکسی: اسلاید فعال در وسط، «قبلی» راست و «بعدی» چپ -->
-                    <div class="award-carousel" id="award-carousel" aria-roledescription="carousel"
-                        aria-label="عکس‌های جایزه ماندالا">
-                        <div class="carousel-stage" id="carousel-stage">
+                    <div class="award-carousel" data-carousel data-caption="Accolade Global Film Competition"
+                        aria-roledescription="carousel" aria-label="عکس‌های جایزه ماندالا — Accolade">
+                        <div class="carousel-stage">
                             <div class="carousel-slide" data-index="0" role="button" tabindex="0"
                                 aria-label="عکس ۱ از ۳، گواهی جایزه. در حال نمایش — برای بزرگ‌نمایی کلیک کنید.">
                                 <img src="Images/award-accolade.jpg"
@@ -1002,18 +977,18 @@
                                 <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                             </div>
                         </div>
-                        <button class="carousel-arrow prev" id="carousel-prev" aria-label="عکس قبلی جایزه">
+                        <button class="carousel-arrow prev" data-action="prev" aria-label="عکس قبلی جایزه">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
                             </svg>
                         </button>
-                        <button class="carousel-arrow next" id="carousel-next" aria-label="عکس بعدی جایزه">
+                        <button class="carousel-arrow next" data-action="next" aria-label="عکس بعدی جایزه">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                             </svg>
                         </button>
                     </div>
-                    <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="انتخاب عکس جایزه">
+                    <div class="carousel-dots" data-dots role="tablist" aria-label="انتخاب عکس جایزه">
                         <button class="carousel-dot" data-index="0" aria-label="نمایش عکس ۱"></button>
                         <button class="carousel-dot" data-index="1" aria-label="نمایش عکس ۲"></button>
                         <button class="carousel-dot" data-index="2" aria-label="نمایش عکس ۳"></button>
@@ -1041,6 +1016,67 @@
                         </svg>
                         مشاهده سایت جشنواره
                     </a>
+                </article>
+
+                <article class="award-card" aria-label="جایزه Stay Gold Film Festival">
+                    <div class="award-badge">
+                        <svg class="award-star" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <span class="award-badge-text">برنده جایزه</span>
+                    </div>
+
+                    <!-- اسلایدر دوعکسی -->
+                    <div class="award-carousel" data-carousel data-caption="Stay Gold Film Festival"
+                        aria-roledescription="carousel" aria-label="عکس‌های جایزه ماندالا — Stay Gold">
+                        <div class="carousel-stage">
+                            <div class="carousel-slide" data-index="0" role="button" tabindex="0"
+                                aria-label="عکس ۱ از ۲، گواهی جایزه. در حال نمایش — برای بزرگ‌نمایی کلیک کنید.">
+                                <img src="Images/award-staygold.jpg"
+                                    alt="گواهی جایزه ماندالا — Golden Standard Award، Stay Gold Film Festival"
+                                    loading="lazy"
+                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-staygold.jpg&lt;br&gt;قرار دهید&lt;/p&gt;&lt;/div&gt;'">
+                                <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
+                            </div>
+                            <div class="carousel-slide" data-index="1" role="button" tabindex="0"
+                                aria-label="عکس ۲ از ۲ — برای مشاهده کلیک کنید">
+                                <img src="Images/award-staygold-2.jpg" alt="ماندالا — عکس جایزه Stay Gold Film Festival"
+                                    loading="lazy"
+                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-staygold-2.jpg&lt;br&gt;قرار دهید&lt;/p&gt;&lt;/div&gt;'">
+                                <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
+                            </div>
+                        </div>
+                        <button class="carousel-arrow prev" data-action="prev" aria-label="عکس قبلی جایزه">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                            </svg>
+                        </button>
+                        <button class="carousel-arrow next" data-action="next" aria-label="عکس بعدی جایزه">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" data-dots role="tablist" aria-label="انتخاب عکس جایزه">
+                        <button class="carousel-dot" data-index="0" aria-label="نمایش عکس ۱"></button>
+                        <button class="carousel-dot" data-index="1" aria-label="نمایش عکس ۲"></button>
+                    </div>
+
+                    <h3 class="award-title">Golden Standard Award — Stay Gold Film Festival</h3>
+                    <div class="award-body">
+                        <p><strong style="color:var(--gold-soft)">ماندالا بار دیگر درخشید:</strong> دومین جایزه
+                            بین‌المللی برای فیلم کوتاه بهنام خسروی. فیلم کوتاه «ماندالا» به نویسندگی و کارگردانی
+                            بهنام خسروی، در چهارمین حضور بین‌المللی خود، موفق به کسب جایزه <strong
+                                style="color:var(--gold-soft)">Golden Standard Award</strong> از چهارمین دوره
+                            جشنواره Stay Gold شد. نمایش این فیلم در بخش رسمی جشنواره، روز ۲۸ ژوئن ۲۰۲۶ برگزار شد و
+                            نتایج نهایی و برندگان جشنواره در تاریخ ۴ جولای ۲۰۲۶ اعلام شدند.</p>
+                        <p>هیئت داوران این جشنواره، فیلم «ماندالا» را به دلیل روایت تأثیرگذار، کیفیت هنری، خلاقیت و
+                            استانداردهای بالای فیلم‌سازی مستقل، شایسته دریافت این جایزه دانستند. جشنواره Stay Gold در
+                            پیام رسمی خود ضمن تبریک به بهنام خسروی اعلام کرد که فیلم «ماندالا» با داستان‌پردازی
+                            برجسته، کیفیت هنری و نگاه خلاقانه‌اش داوران را تحت تأثیر قرار داده و به عنوان یکی از آثار
+                            شاخص این دوره شناخته شده است.</p>
+                    </div>
                 </article>
             </div>
         </section>
@@ -1084,6 +1120,7 @@
                         <div class="detail-row">
                             <dt class="detail-label">جوایز</dt>
                             <dd class="detail-value" style="color:var(--gold-soft)">Accolade Global Film Competition
+                                <br>Golden Standard Award — Stay Gold Film Festival
                             </dd>
                         </div>
                         <div class="detail-row">
@@ -1162,8 +1199,10 @@
         <section class="dist-section fade" aria-label="جشنواره و پخش بین‌المللی فیلم ماندالا">
             <h2 class="section-title">جشنواره و پخش</h2>
             <div class="dist-box">
-                <p>فیلم کوتاه ماندالا با کسب جایزه از <strong>Accolade Global Film Competition</strong>، اکنون با هدف
-                    شرکت در <strong>جشنواره‌های دسته الف جهانی</strong> مسیر موفق خود را آغاز کرده است.</p>
+                <p>فیلم کوتاه ماندالا با کسب جایزه از <strong>Accolade Global Film Competition</strong> و
+                    <strong>Stay Gold Film Festival</strong>، اکنون با هدف شرکت در <strong>جشنواره‌های دسته الف
+                        جهانی</strong> مسیر موفق خود را ادامه می‌دهد.
+                </p>
                 <p>مجری طرح این پروژه مؤسسه بین‌المللی <strong>سونا اسکای (Seven Sky)</strong> به مدیریت <strong>شهاب
                         حسینی</strong>، هنرمند سرشناس و برنده جایزه کن، است و بخش پخش و توزیع بین‌المللی فیلم نیز زیر
                     نظر همین مؤسسه و به مدیریت <strong>کامران محمدی</strong> انجام می‌شود.</p>
@@ -1186,72 +1225,85 @@
         }, { threshold: 0.08 });
         fades.forEach(el => observer.observe(el));
 
-        // ---- اسلایدر جایزه + لایت‌باکس ----
+        // ---- اسلایدرهای جایزه (چند نمونه مستقل) + لایت‌باکس مشترک ----
         (function () {
-            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-            const prevBtn = document.getElementById('carousel-prev');
-            const nextBtn = document.getElementById('carousel-next');
-            let active = 0;
-
-            function render() {
-                slides.forEach((el, i) => {
-                    el.classList.remove('is-active', 'is-prev', 'is-next');
-                    const offset = (i - active + slides.length) % slides.length;
-                    if (offset === 0) el.classList.add('is-active');
-                    else if (offset === 1) el.classList.add('is-next');
-                    else el.classList.add('is-prev');
-                    el.setAttribute('aria-current', offset === 0 ? 'true' : 'false');
-                });
-                dots.forEach((d, i) => d.classList.toggle('is-current', i === active));
-            }
-
-            function goTo(i) {
-                active = (i + slides.length) % slides.length;
-                render();
-            }
-
-            slides.forEach((el, i) => {
-                el.addEventListener('click', () => {
-                    if (el.classList.contains('is-active')) openLightbox(i);
-                    else goTo(i);
-                });
-                el.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        if (el.classList.contains('is-active')) openLightbox(i);
-                        else goTo(i);
-                    }
-                });
-            });
-
-            if (prevBtn) prevBtn.addEventListener('click', () => goTo(active - 1));
-            if (nextBtn) nextBtn.addEventListener('click', () => goTo(active + 1));
-            dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-
-            render();
-
-            // لایت‌باکس
             const lightbox = document.getElementById('lightbox');
             const lbImg = document.getElementById('lightbox-img');
+            const lbCaption = document.getElementById('lightbox-caption');
             const lbClose = document.getElementById('lightbox-close');
             const lbPrev = document.getElementById('lightbox-prev');
             const lbNext = document.getElementById('lightbox-next');
 
-            function updateLightboxImg() {
-                const img = slides[active].querySelector('img');
-                if (!img) return;
-                lbImg.src = img.src;
-                lbImg.alt = img.alt;
+            let activeCarousel = null; // نمونه‌ای که در حال حاضر لایت‌باکس را کنترل می‌کند
+
+            function initCarousel(container) {
+                const slides = Array.from(container.querySelectorAll('.carousel-slide'));
+                const dotsWrap = container.parentElement.querySelector('[data-dots]');
+                const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.carousel-dot')) : [];
+                const prevBtn = container.querySelector('[data-action="prev"]');
+                const nextBtn = container.querySelector('[data-action="next"]');
+                const caption = container.getAttribute('data-caption') || '';
+                let active = 0;
+
+                function render() {
+                    slides.forEach((el, i) => {
+                        el.classList.remove('is-active', 'is-prev', 'is-next');
+                        const offset = (i - active + slides.length) % slides.length;
+                        if (offset === 0) el.classList.add('is-active');
+                        else if (offset === 1) el.classList.add('is-next');
+                        else el.classList.add('is-prev');
+                        el.setAttribute('aria-current', offset === 0 ? 'true' : 'false');
+                    });
+                    dots.forEach((d, i) => d.classList.toggle('is-current', i === active));
+                    if (activeCarousel === api) updateLightboxImg();
+                }
+
+                function goTo(i) {
+                    active = (i + slides.length) % slides.length;
+                    render();
+                }
+
+                function updateLightboxImg() {
+                    const img = slides[active].querySelector('img');
+                    if (!img) return;
+                    lbImg.src = img.src;
+                    lbImg.alt = img.alt;
+                    lbCaption.textContent = caption;
+                }
+
+                function openLightbox(index) {
+                    activeCarousel = api;
+                    goTo(index);
+                    updateLightboxImg();
+                    lightbox.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                    lbClose.focus();
+                }
+
+                slides.forEach((el, i) => {
+                    el.addEventListener('click', () => {
+                        if (el.classList.contains('is-active')) openLightbox(i);
+                        else goTo(i);
+                    });
+                    el.addEventListener('keydown', e => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            if (el.classList.contains('is-active')) openLightbox(i);
+                            else goTo(i);
+                        }
+                    });
+                });
+
+                if (prevBtn) prevBtn.addEventListener('click', () => goTo(active - 1));
+                if (nextBtn) nextBtn.addEventListener('click', () => goTo(active + 1));
+                dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+                const api = { goTo, updateLightboxImg, get active() { return active; } };
+                render();
+                return api;
             }
 
-            function openLightbox(index) {
-                goTo(index);
-                updateLightboxImg();
-                lightbox.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                lbClose.focus();
-            }
+            const carousels = Array.from(document.querySelectorAll('[data-carousel]')).map(initCarousel);
 
             function closeLightbox() {
                 lightbox.classList.remove('open');
@@ -1260,14 +1312,14 @@
 
             lbClose.addEventListener('click', closeLightbox);
             lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-            if (lbPrev) lbPrev.addEventListener('click', () => { goTo(active - 1); updateLightboxImg(); });
-            if (lbNext) lbNext.addEventListener('click', () => { goTo(active + 1); updateLightboxImg(); });
+            if (lbPrev) lbPrev.addEventListener('click', () => { if (activeCarousel) { activeCarousel.goTo(activeCarousel.active - 1); } });
+            if (lbNext) lbNext.addEventListener('click', () => { if (activeCarousel) { activeCarousel.goTo(activeCarousel.active + 1); } });
 
             document.addEventListener('keydown', e => {
                 if (!lightbox.classList.contains('open')) return;
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') { goTo(active - 1); updateLightboxImg(); }
-                if (e.key === 'ArrowLeft') { goTo(active + 1); updateLightboxImg(); }
+                if (e.key === 'ArrowRight' && activeCarousel) activeCarousel.goTo(activeCarousel.active - 1);
+                if (e.key === 'ArrowLeft' && activeCarousel) activeCarousel.goTo(activeCarousel.active + 1);
             });
         })();
     </script>
