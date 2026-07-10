@@ -293,6 +293,38 @@
             background: #101010;
         }
 
+        .award-card--single {
+            max-width: 100%;
+            margin: 0;
+            display: grid;
+            grid-template-columns: minmax(300px, 460px) 1fr;
+            gap: clamp(30px, 5vw, 70px);
+            align-items: center;
+        }
+
+        .award-card--single .award-media {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .award-card--single .award-badge {
+            align-self: flex-start;
+        }
+
+        .award-card--single .award-carousel {
+            max-width: 460px;
+        }
+
+        @media (max-width: 820px) {
+            .award-card--single {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .award-badge {
             display: inline-flex;
             align-items: center;
@@ -316,7 +348,7 @@
             text-transform: uppercase;
         }
 
-        /* AWARD CAROUSEL — 3 photos, active slide centered, click to enlarge */
+        /* AWARD CAROUSEL — active slide centered, click to enlarge */
         .award-carousel {
             position: relative;
             width: 100%;
@@ -429,6 +461,7 @@
             justify-content: center;
             gap: 8px;
             margin-bottom: 22px;
+            flex-wrap: wrap;
         }
 
         .carousel-dot {
@@ -497,6 +530,10 @@
             letter-spacing: .5px;
             opacity: .5;
             line-height: 1.5;
+        }
+
+        .award-info {
+            transition: opacity .25s;
         }
 
         .award-title {
@@ -848,7 +885,8 @@
                 gap: 16px;
             }
 
-            .award-carousel {
+            .award-carousel,
+            .award-card--single .award-carousel {
                 max-width: 300px;
                 height: 230px;
             }
@@ -954,139 +992,190 @@
         <section class="awards-section fade" aria-label="MANDALA film awards and festival recognition">
             <h2 class="section-title">Awards &amp; Recognition</h2>
             <div class="awards-grid">
-                <article class="award-card" aria-label="Accolade Global Film Competition Award">
-                    <div class="award-badge">
-                        <svg class="award-star" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <span class="award-badge-text">Award Winner</span>
-                    </div>
-
-                    <!-- CAROUSEL: 3 photos — active slide centered, others docked left/right -->
-                    <div class="award-carousel" data-carousel data-caption="Accolade Global Film Competition"
-                        aria-roledescription="carousel" aria-label="MANDALA award photos — Accolade">
-                        <div class="carousel-stage">
-                            <div class="carousel-slide" data-index="0" role="button" tabindex="0"
-                                aria-label="Award photo 1 of 3, the certificate. Currently shown — click to enlarge.">
-                                <img src="Images/award-accolade.jpg"
-                                    alt="MANDALA — Accolade Global Film Competition Award Certificate" loading="lazy"
-                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade.jpg&lt;/p&gt;&lt;/div&gt;'">
-                                <div class="award-zoom-hint">Click to zoom</div>
-                            </div>
-                            <div class="carousel-slide" data-index="1" role="button" tabindex="0"
-                                aria-label="Award photo 2 of 3 — click to view">
-                                <img src="Images/award-accolade-2.jpg"
-                                    alt="MANDALA — Accolade Global Film Competition, award photo" loading="lazy"
-                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-2.jpg&lt;/p&gt;&lt;/div&gt;'">
-                                <div class="award-zoom-hint">Click to zoom</div>
-                            </div>
-                            <div class="carousel-slide" data-index="2" role="button" tabindex="0"
-                                aria-label="Award photo 3 of 3 — click to view">
-                                <img src="Images/award-accolade-3.jpg"
-                                    alt="MANDALA — Accolade Global Film Competition, recognition photo" loading="lazy"
-                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-3.jpg&lt;/p&gt;&lt;/div&gt;'">
-                                <div class="award-zoom-hint">Click to zoom</div>
-                            </div>
+                <article class="award-card award-card--single" aria-label="MANDALA international awards and selections">
+                    <div class="award-media">
+                        <div class="award-badge">
+                            <svg class="award-star" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <span class="award-badge-text" id="mandala-badge-text">Award Winner</span>
                         </div>
-                        <button class="carousel-arrow prev" data-action="prev" aria-label="Previous award photo">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                            </svg>
-                        </button>
-                        <button class="carousel-arrow next" data-action="next" aria-label="Next award photo">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="carousel-dots" data-dots role="tablist" aria-label="Select award photo">
-                        <button class="carousel-dot" data-index="0" aria-label="Show photo 1"></button>
-                        <button class="carousel-dot" data-index="1" aria-label="Show photo 2"></button>
-                        <button class="carousel-dot" data-index="2" aria-label="Show photo 3"></button>
-                    </div>
 
-                    <h3 class="award-title">Accolade Global Film Competition</h3>
-                    <div class="award-body">
-                        <p>MANDALA has received an Award of Recognition from the <strong
-                                style="color:var(--gold-soft)">Accolade Global Film Competition</strong> — a
-                            U.S.-based juried competition built specifically for independent storytellers, drawing
-                            entries from filmmakers in more than seventy countries. Running since 2003 and named by
-                            MovieMaker Magazine as one of the festivals worth the entry fee, Accolade is IMDb-qualified,
-                            and past honorees have gone on to receive Oscar, Emmy, and Telly recognition.</p>
-                        <p>For a three-character chamber piece built almost entirely on restraint, silence, and
-                            psychological tension, this win is more than a credit line — it is early, outside
-                            validation that the film's portrait of inner collapse reaches an international jury just as
-                            powerfully as intended. It marks the opening credential of MANDALA's festival run, with
-                            Category A submissions now underway.</p>
-                    </div>
-                    <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
-                        rel="noopener noreferrer" aria-label="Visit Accolade Global Film Competition website">
-                        Visit Accolade
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
-                        </svg>
-                    </a>
-                </article>
-                <article class="award-card" aria-label="Stay Gold Film Festival Award">
-                    <div class="award-badge">
-                        <svg class="award-star" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <span class="award-badge-text">Award Winner</span>
-                    </div>
-
-                    <!-- CAROUSEL: 2 photos -->
-                    <div class="award-carousel" data-carousel data-caption="Stay Gold Film Festival"
-                        aria-roledescription="carousel" aria-label="MANDALA award photos — Stay Gold">
-                        <div class="carousel-stage">
-                            <div class="carousel-slide" data-index="0" role="button" tabindex="0"
-                                aria-label="Award photo 1 of 2, the certificate. Currently shown — click to enlarge.">
-                                <img src="Images/award-staygold.jpg"
-                                    alt="MANDALA — Stay Gold Film Festival Golden Standard Award Certificate"
-                                    loading="lazy"
-                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-staygold.jpg&lt;/p&gt;&lt;/div&gt;'">
-                                <div class="award-zoom-hint">Click to zoom</div>
+                        <!-- CAROUSEL: 5 photos across 3 festivals — active slide centered, click to enlarge -->
+                        <div class="award-carousel" data-carousel data-caption="MANDALA — Awards &amp; Selections"
+                            data-info-target="mandala-award-info" aria-roledescription="carousel"
+                            aria-label="MANDALA award and selection photos">
+                            <div class="carousel-stage">
+                                <div class="carousel-slide" data-index="0" data-badge="Award Winner" role="button"
+                                    tabindex="0"
+                                    aria-label="Photo 1 of 5, Accolade Global Film Competition certificate. Currently shown — click to enlarge.">
+                                    <img src="Images/award-accolade.jpg"
+                                        alt="MANDALA — Accolade Global Film Competition Award Certificate"
+                                        loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">Click to zoom</div>
+                                </div>
+                                <div class="carousel-slide" data-index="1" data-badge="Official Selection" role="button"
+                                    tabindex="0"
+                                    aria-label="Photo 2 of 5, official selection at the Pune Film Festival, India — click to view">
+                                    <img src="Images/award-accolade-2.jpg"
+                                        alt="MANDALA — Official Selection, Pune Film Festival, India" loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-2.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">Click to zoom</div>
+                                </div>
+                                <div class="carousel-slide" data-index="2" data-badge="Award Winner" role="button"
+                                    tabindex="0"
+                                    aria-label="Photo 3 of 5, Accolade Global Film Competition recognition photo — click to view">
+                                    <img src="Images/award-accolade-3.jpg"
+                                        alt="MANDALA — Accolade Global Film Competition, recognition photo"
+                                        loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-3.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">Click to zoom</div>
+                                </div>
+                                <div class="carousel-slide" data-index="3" data-badge="Award Winner" role="button"
+                                    tabindex="0"
+                                    aria-label="Photo 4 of 5, Stay Gold Film Festival Golden Standard Award certificate — click to view">
+                                    <img src="Images/award-staygold.jpg"
+                                        alt="MANDALA — Stay Gold Film Festival Golden Standard Award Certificate"
+                                        loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-staygold.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">Click to zoom</div>
+                                </div>
+                                <div class="carousel-slide" data-index="4" data-badge="Award Winner" role="button"
+                                    tabindex="0"
+                                    aria-label="Photo 5 of 5, Stay Gold Film Festival award photo — click to view">
+                                    <img src="Images/award-staygold-2.jpg"
+                                        alt="MANDALA — Stay Gold Film Festival, award photo" loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-staygold-2.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">Click to zoom</div>
+                                </div>
                             </div>
-                            <div class="carousel-slide" data-index="1" role="button" tabindex="0"
-                                aria-label="Award photo 2 of 2 — click to view">
-                                <img src="Images/award-staygold-2.jpg"
-                                    alt="MANDALA — Stay Gold Film Festival, award photo" loading="lazy"
-                                    onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-staygold-2.jpg&lt;/p&gt;&lt;/div&gt;'">
-                                <div class="award-zoom-hint">Click to zoom</div>
-                            </div>
+                            <button class="carousel-arrow prev" data-action="prev" aria-label="Previous award photo">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                </svg>
+                            </button>
+                            <button class="carousel-arrow next" data-action="next" aria-label="Next award photo">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                                </svg>
+                            </button>
                         </div>
-                        <button class="carousel-arrow prev" data-action="prev" aria-label="Previous award photo">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                            </svg>
-                        </button>
-                        <button class="carousel-arrow next" data-action="next" aria-label="Next award photo">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="carousel-dots" data-dots role="tablist" aria-label="Select award photo">
-                        <button class="carousel-dot" data-index="0" aria-label="Show photo 1"></button>
-                        <button class="carousel-dot" data-index="1" aria-label="Show photo 2"></button>
+                        <div class="carousel-dots" data-dots role="tablist" aria-label="Select award photo">
+                            <button class="carousel-dot" data-index="0"
+                                aria-label="Show photo 1 — Accolade certificate"></button>
+                            <button class="carousel-dot" data-index="1"
+                                aria-label="Show photo 2 — Pune Film Festival"></button>
+                            <button class="carousel-dot" data-index="2"
+                                aria-label="Show photo 3 — Accolade recognition"></button>
+                            <button class="carousel-dot" data-index="3"
+                                aria-label="Show photo 4 — Stay Gold certificate"></button>
+                            <button class="carousel-dot" data-index="4"
+                                aria-label="Show photo 5 — Stay Gold photo"></button>
+                        </div>
                     </div>
 
-                    <h3 class="award-title">Golden Standard Award — Stay Gold Film Festival</h3>
-                    <div class="award-body">
-                        <p><strong style="color:var(--gold-soft)">Mandala Shines Again:</strong> a second
-                            international award for Behnam Khosravi's short film. "Mandala," written and directed by
-                            Behnam Khosravi, has won the <strong style="color:var(--gold-soft)">Golden Standard
-                                Award</strong> at the 4th edition of the Stay Gold Film Festival — the film's fourth
-                            international festival appearance. The film screened in the festival's official
-                            selection on June 28, 2026, with final results and winners announced on July 4, 2026.</p>
-                        <p>The jury recognized "Mandala" for its powerful storytelling, artistic quality,
-                            creativity, and the high standards of independent filmmaking it represents. In its
-                            official announcement, the Stay Gold Film Festival congratulated Behnam Khosravi, noting
-                            that "Mandala" impressed the jury with its outstanding narrative, artistic quality, and
-                            creative vision — earning recognition as one of the standout works of this edition.</p>
+                    <div class="award-info" id="mandala-award-info">
+                        <h3 class="award-title">Accolade Global Film Competition</h3>
+                        <div class="award-body">
+                            <p>MANDALA has received an Award of Recognition from the <strong
+                                    style="color:var(--gold-soft)">Accolade Global Film Competition</strong> — a
+                                U.S.-based juried competition built specifically for independent storytellers,
+                                drawing entries from filmmakers in more than seventy countries. Running since 2003
+                                and named by MovieMaker Magazine as one of the festivals worth the entry fee,
+                                Accolade is IMDb-qualified, and past honorees have gone on to receive Oscar, Emmy,
+                                and Telly recognition.</p>
+                        </div>
+                        <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Accolade Global Film Competition website">
+                            Visit Accolade
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
+                            </svg>
+                        </a>
                     </div>
+
+                    <!-- Per-slide content, swapped into #mandala-award-info by the carousel script -->
+                    <template id="mandala-award-info-tpl-0">
+                        <h3 class="award-title">Accolade Global Film Competition</h3>
+                        <div class="award-body">
+                            <p>MANDALA has received an Award of Recognition from the <strong
+                                    style="color:var(--gold-soft)">Accolade Global Film Competition</strong> — a
+                                U.S.-based juried competition built specifically for independent storytellers,
+                                drawing entries from filmmakers in more than seventy countries. Running since 2003
+                                and named by MovieMaker Magazine as one of the festivals worth the entry fee,
+                                Accolade is IMDb-qualified, and past honorees have gone on to receive Oscar, Emmy,
+                                and Telly recognition.</p>
+                        </div>
+                        <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Accolade Global Film Competition website">
+                            Visit Accolade
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
+                            </svg>
+                        </a>
+                    </template>
+
+                    <template id="mandala-award-info-tpl-1">
+                        <h3 class="award-title">Official Selection — Pune Film Festival, India</h3>
+                        <div class="award-body">
+                            <p>MANDALA has earned an <strong style="color:var(--gold-soft)">official selection at
+                                    the Pune Film Festival</strong> in India, extending the film's festival journey
+                                into South Asia. The selection places MANDALA among a curated slate of international
+                                short films screened before Pune's audiences and jury.</p>
+                            <p>For a project built on restraint and interiority rather than spectacle, being chosen
+                                by a festival known for its discerning eye toward independent and arthouse cinema is
+                                a meaningful sign that the film's psychological language travels well beyond its
+                                country of origin.</p>
+                        </div>
+                    </template>
+
+                    <template id="mandala-award-info-tpl-2">
+                        <h3 class="award-title">Accolade Global Film Competition — Recognition</h3>
+                        <div class="award-body">
+                            <p>For a three-character chamber piece built almost entirely on restraint, silence, and
+                                psychological tension, this win is more than a credit line — it is early, outside
+                                validation that the film's portrait of inner collapse reaches an international jury
+                                just as powerfully as intended. It marks the opening credential of MANDALA's festival
+                                run, with Category A submissions now underway.</p>
+                        </div>
+                        <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Accolade Global Film Competition website">
+                            Visit Accolade
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
+                            </svg>
+                        </a>
+                    </template>
+
+                    <template id="mandala-award-info-tpl-3">
+                        <h3 class="award-title">Golden Standard Award — Stay Gold Film Festival</h3>
+                        <div class="award-body">
+                            <p><strong style="color:var(--gold-soft)">Mandala Shines Again:</strong> a second
+                                international award for Behnam Khosravi's short film. "Mandala," written and
+                                directed by Behnam Khosravi, has won the <strong style="color:var(--gold-soft)">Golden
+                                    Standard Award</strong> at the 4th edition of the Stay Gold Film Festival — the
+                                film's fourth international festival appearance. The film screened in the festival's
+                                official selection on June 28, 2026, with final results and winners announced on
+                                July 4, 2026.</p>
+                        </div>
+                    </template>
+
+                    <template id="mandala-award-info-tpl-4">
+                        <h3 class="award-title">Golden Standard Award — Stay Gold Film Festival</h3>
+                        <div class="award-body">
+                            <p>The jury recognized "Mandala" for its powerful storytelling, artistic quality,
+                                creativity, and the high standards of independent filmmaking it represents. In its
+                                official announcement, the Stay Gold Film Festival congratulated Behnam Khosravi,
+                                noting that "Mandala" impressed the jury with its outstanding narrative, artistic
+                                quality, and creative vision — earning recognition as one of the standout works of
+                                this edition.</p>
+                        </div>
+                    </template>
                 </article>
             </div>
         </section>
@@ -1148,6 +1237,7 @@
                         <div class="detail-row">
                             <dt class="detail-label">Awards</dt>
                             <dd class="detail-value" style="color:var(--gold-soft)">Accolade Global Film Competition
+                                <br>Official Selection — Pune Film Festival, India
                                 <br>Golden Standard Award — Stay Gold Film Festival
                             </dd>
                         </div>
@@ -1209,9 +1299,11 @@
             <h2 class="section-title">Festival &amp; Distribution</h2>
             <div class="dist-box">
                 <p>MANDALA was produced with the aim of participating in prestigious international film festivals.
-                    Having already received recognition at the <strong>Accolade Global Film Competition</strong> and
-                    the <strong>Stay Gold Film Festival</strong>, the film now targets <strong>Category A
-                        international festivals</strong>.</p>
+                    Having already received recognition at the <strong>Accolade Global Film Competition</strong>, an
+                    official selection at the <strong>Pune Film Festival</strong> in India, and an award at the
+                    <strong>Stay Gold Film Festival</strong>, the film now targets <strong>Category A
+                        international festivals</strong>.
+                </p>
                 <p>The project is executed by <strong>Seven Sky (Sona Sky)</strong>, an international institute under
                     the direction of <strong>Shahab Hosseini</strong> — a celebrated artist and Cannes Award winner.
                     International distribution and release strategy is managed under the same institute by
@@ -1253,7 +1345,21 @@
                 const prevBtn = container.querySelector('[data-action="prev"]');
                 const nextBtn = container.querySelector('[data-action="next"]');
                 const caption = container.getAttribute('data-caption') || '';
+                const infoTargetId = container.getAttribute('data-info-target');
+                const infoEl = infoTargetId ? document.getElementById(infoTargetId) : null;
+                const badgeEl = document.getElementById('mandala-badge-text');
                 let active = 0;
+
+                function updateInfo() {
+                    if (!infoEl) return;
+                    const tpl = document.getElementById(infoEl.id + '-tpl-' + active);
+                    if (tpl) {
+                        infoEl.innerHTML = '';
+                        infoEl.appendChild(tpl.content.cloneNode(true));
+                    }
+                    const badge = slides[active].getAttribute('data-badge');
+                    if (badge && badgeEl) badgeEl.textContent = badge;
+                }
 
                 function render() {
                     slides.forEach((el, i) => {
@@ -1265,6 +1371,7 @@
                         el.setAttribute('aria-current', offset === 0 ? 'true' : 'false');
                     });
                     dots.forEach((d, i) => d.classList.toggle('is-current', i === active));
+                    updateInfo();
                     if (activeCarousel === api) updateLightboxImg();
                 }
 
