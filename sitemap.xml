@@ -66,6 +66,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://behnamkhosravi.com/blog-award-seaiff.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://behnamkhosravi.com/blog-award-seaiff-fa.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://behnamkhosravi.com/blog-award-tinff.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://behnamkhosravi.com/blog-award-tinff-fa.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://behnamkhosravi.com/behind-the-scenes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
