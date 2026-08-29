@@ -86,6 +86,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://behnamkhosravi.com/blog-award-colortape.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://behnamkhosravi.com/blog-award-colortape-fa.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://behnamkhosravi.com/behind-the-scenes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
