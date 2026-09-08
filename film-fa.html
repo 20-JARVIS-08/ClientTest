@@ -40,6 +40,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"خانه","item":"https://behnamkhosravi.com/"},{"@type":"ListItem","position":2,"name":"ماندالا — فیلم کوتاه (FA)","item":"https://behnamkhosravi.com/film-fa.html"}]}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"VideoObject","name":"تریلر رسمی فیلم کوتاه ماندالا به کارگردانی بهنام خسروی","description":"تریلر رسمی فیلم کوتاه روان‌شناختی ماندالا، نوشته و ساخته‌ی بهنام خسروی.","thumbnailUrl":["https://i.ytimg.com/vi/ywNIe0SXQZ4/maxresdefault.jpg"],"uploadDate":"2025-01-01","contentUrl":"https://www.youtube.com/watch?v=ywNIe0SXQZ4","embedUrl":"https://www.youtube-nocookie.com/embed/ywNIe0SXQZ4","director":{"@type":"Person","name":"بهنام خسروی"}}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -244,11 +247,11 @@
             overflow: hidden;
         }
 
-        .trailer-wrapper video {
+        .trailer-wrapper iframe {
             width: 100%;
             height: 100%;
-            object-fit: contain;
             display: block;
+            border: 0;
         }
 
         /* AWARDS */
@@ -973,10 +976,10 @@
         <section class="trailer-section fade" aria-label="تریلر رسمی ماندالا">
             <h2 class="section-title">تریلر</h2>
             <div class="trailer-wrapper">
-                <video controls playsinline preload="metadata" aria-label="تریلر رسمی فیلم کوتاه ماندالا">
-                    <source src="Images/trailer.mp4" type="video/mp4">
-                    <p>مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند. <a href="Images/trailer.mp4">دانلود تریلر</a>.</p>
-                </video>
+                <iframe src="https://www.youtube-nocookie.com/embed/ywNIe0SXQZ4?rel=0"
+                    title="تریلر رسمی فیلم کوتاه ماندالا به کارگردانی بهنام خسروی" loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
 

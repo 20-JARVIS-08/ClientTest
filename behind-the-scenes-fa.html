@@ -82,6 +82,19 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "نگاهی به پشت صحنه و ساخت فیلم کوتاه ماندالا به کارگردانی بهنام خسروی",
+      "description": "ویدیویی از پشت صحنه‌ی تولید فیلم کوتاه روان‌شناختی ماندالا، نوشته و ساخته‌ی بهنام خسروی — نگاهی به روند فیلم‌برداری و ساخت اثر.",
+      "thumbnailUrl": ["https://i.ytimg.com/vi/G5TW5l2LmMw/maxresdefault.jpg"],
+      "uploadDate": "2026-01-01",
+      "contentUrl": "https://www.youtube.com/watch?v=G5TW5l2LmMw",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/G5TW5l2LmMw",
+      "director": { "@type": "Person", "name": "بهنام خسروی" }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,6 +262,28 @@
             font-size: clamp(20px, 2.5vw, 27px);
             color: var(--text);
             margin: 38px 0 14px;
+        }
+
+        /* ─── VIDEO ──────────────────────────── */
+        .video-section {
+            padding: clamp(50px, 7vw, 90px) var(--section-px);
+            border-top: 1px solid rgba(184, 155, 94, .08);
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 1px solid rgba(184, 155, 94, .2);
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: 0;
         }
 
         /* ─── SLIDESHOW ──────────────────────────── */
@@ -494,6 +529,17 @@
             </p>
         </div>
     </article>
+
+    <!-- VIDEO -->
+    <section class="video-section" aria-label="ویدیوی نگاهی به پشت صحنه و ساخت فیلم کوتاه ماندالا">
+        <h2 class="section-title">ویدیوی پشت صحنه</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/G5TW5l2LmMw?rel=0"
+                title="نگاهی به پشت صحنه و ساخت فیلم کوتاه ماندالا به کارگردانی بهنام خسروی" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <!-- SLIDESHOW -->
     <section class="slideshow-section">
