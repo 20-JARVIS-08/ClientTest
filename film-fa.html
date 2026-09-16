@@ -254,6 +254,29 @@
             border: 0;
         }
 
+        /* SHORT */
+        .short-section {
+            padding: var(--section-py) var(--section-px);
+            background: #050505;
+            border-top: 1px solid rgba(184, 155, 94, .08);
+        }
+
+        .short-wrapper {
+            width: 100%;
+            max-width: 360px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border: 1px solid rgba(184, 155, 94, .2);
+            overflow: hidden;
+        }
+
+        .short-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: 0;
+        }
+
         /* AWARDS */
         .awards-section {
             padding: var(--section-py) var(--section-px);
@@ -986,6 +1009,19 @@
             </div>
         </section>
 
+        <!-- SHORT -->
+        <section class="short-section fade" aria-label="شورت یوتیوب ماندالا">
+            <h2 class="section-title">شورت</h2>
+            <div class="short-wrapper">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/AzYapCrEglw?rel=0&origin=https%3A%2F%2Fbehnamkhosravi.com"
+                    title="شورت یوتیوب فیلم ماندالا از بهنام خسروی"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
         <!-- AWARDS -->
         <section class="awards-section fade" aria-label="جوایز و افتخارات فیلم ماندالا">
             <h2 class="section-title">جوایز و افتخارات</h2>
@@ -1000,80 +1036,89 @@
                             <span class="award-badge-text" id="mandala-badge-text">برنده‌ی جایزه</span>
                         </div>
 
-                        <!-- کاروسل: ۷ تصویر از ۴ جشنواره — اسلاید فعال در وسط، برای بزرگ‌نمایی کلیک کنید -->
+                        <!-- کاروسل: ۱۰ تصویر از ۸ جشنواره — اسلاید فعال در وسط، برای بزرگ‌نمایی کلیک کنید -->
                         <div class="award-carousel" data-carousel data-caption="ماندالا — جوایز و افتخارات"
                             data-info-target="mandala-award-info" aria-roledescription="carousel"
                             aria-label="تصاویر جوایز و افتخارات ماندالا">
                             <div class="carousel-stage">
                                 <div class="carousel-slide" data-index="0" data-badge="برنده‌ی جایزه" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۱ از ۷، گواهی جشنواره Accolade. در حال نمایش — برای بزرگ‌نمایی کلیک کنید.">
+                                    aria-label="تصویر ۱ از ۱۰، جایزه‌ی بهترین فیلم کوتاه تجربی، دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو — برای مشاهده کلیک کنید">
+                                    <img src="Images/award-tinff-win.jpg"
+                                        alt="ماندالا — جایزه‌ی بهترین فیلم کوتاه تجربی، دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو"
+                                        loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-tinff-win.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
+                                </div>
+                                <div class="carousel-slide" data-index="1" data-badge="برنده‌ی جایزه" role="button"
+                                    tabindex="0"
+                                    aria-label="تصویر ۲ از ۱۰، گواهی جشنواره Accolade. در حال نمایش — برای بزرگ‌نمایی کلیک کنید.">
                                     <img src="Images/award-accolade.jpg"
                                         alt="ماندالا — گواهی جایزه‌ی Accolade Global Film Competition" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-accolade.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="1" data-badge="نامزد بخش رسمی" role="button"
+                                <div class="carousel-slide" data-index="2" data-badge="نامزد بخش رسمی" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۲ از ۷، نامزدی بخش رسمی جشنواره فیلم پونه، هند — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۳ از ۱۰، نامزدی بخش رسمی جشنواره فیلم پونه، هند — برای مشاهده کلیک کنید">
                                     <img src="Images/award-accolade-2.jpg"
                                         alt="ماندالا — نامزد بخش رسمی جشنواره فیلم پونه، هند" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-accolade-2.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="2" data-badge="برنده‌ی جایزه" role="button"
+                                <div class="carousel-slide" data-index="3" data-badge="برنده‌ی جایزه" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۳ از ۷، تقدیر جشنواره Accolade — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۴ از ۱۰، تقدیر جشنواره Accolade — برای مشاهده کلیک کنید">
                                     <img src="Images/award-accolade-3.jpg"
                                         alt="ماندالا — تصویر تقدیر جشنواره Accolade Global Film Competition"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-accolade-3.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="3" data-badge="برنده‌ی جایزه" role="button"
+                                <div class="carousel-slide" data-index="4" data-badge="برنده‌ی جایزه" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۴ از ۷، گواهی جایزه‌ی Golden Standard جشنواره Stay Gold — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۵ از ۱۰، گواهی جایزه‌ی Golden Standard جشنواره Stay Gold — برای مشاهده کلیک کنید">
                                     <img src="Images/award-staygold.jpg"
                                         alt="ماندالا — گواهی جایزه‌ی Golden Standard جشنواره Stay Gold" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-staygold.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="4" data-badge="برنده‌ی جایزه" role="button"
+                                <div class="carousel-slide" data-index="5" data-badge="برنده‌ی جایزه" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۵ از ۷، تصویر جشنواره Stay Gold — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۶ از ۱۰، تصویر جشنواره Stay Gold — برای مشاهده کلیک کنید">
                                     <img src="Images/award-staygold-2.jpg"
                                         alt="ماندالا — تصویر جشنواره Stay Gold Film Festival" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-staygold-2.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="5" data-badge="بهترین بازیگر مرد" role="button"
+                                <div class="carousel-slide" data-index="6" data-badge="بهترین بازیگر مرد" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۶ از ۷، جایزه‌ی بهترین بازیگر نقش اول مرد بهنام خسروی از جشنواره Accolade — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۷ از ۱۰، جایزه‌ی بهترین بازیگر نقش اول مرد بهنام خسروی از جشنواره Accolade — برای مشاهده کلیک کنید">
                                     <img src="Images/award-accolade-best-actor.jpg"
                                         alt="ماندالا — جایزه‌ی بهترین بازیگر نقش اول مرد، بهنام خسروی، جشنواره Accolade"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-accolade-best-actor.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="6" data-badge="نامزد بخش رسمی" role="button"
+                                <div class="carousel-slide" data-index="7" data-badge="نامزد بخش رسمی" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۷ از ۹، حضور در جشنواره بین‌المللی فیلم جنوب شرق آسیا (SEAIFF) — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۸ از ۱۰، حضور در جشنواره بین‌المللی فیلم جنوب شرق آسیا (SEAIFF) — برای مشاهده کلیک کنید">
                                     <img src="Images/award-seaiff.jpg"
                                         alt="ماندالا — پذیرفته‌شده در جشنواره بین‌المللی فیلم جنوب شرق آسیا (SEAIFF)"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-seaiff.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="7" data-badge="نامزد" role="button" tabindex="0"
-                                    aria-label="تصویر ۸ از ۹، نامزدی بهترین فیلم کوتاه روایی تجربی در دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو — برای مشاهده کلیک کنید">
+                                <div class="carousel-slide" data-index="8" data-badge="نامزد" role="button" tabindex="0"
+                                    aria-label="تصویر ۹ از ۱۰، نامزدی بهترین فیلم کوتاه روایی تجربی در دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو — برای مشاهده کلیک کنید">
                                     <img src="Images/award-tinff.jpg"
                                         alt="ماندالا — نامزد دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;تصویر جایزه را در&lt;br&gt;Images/award-tinff.jpg آپلود کنید&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">برای بزرگ‌نمایی کلیک کنید</div>
                                 </div>
-                                <div class="carousel-slide" data-index="8" data-badge="نامزد بخش رسمی" role="button"
+                                <div class="carousel-slide" data-index="9" data-badge="نامزد بخش رسمی" role="button"
                                     tabindex="0"
-                                    aria-label="تصویر ۹ از ۹، راه‌یابی به بخش رسمی نهمین دوره جشنواره بین‌المللی فیلم Colortape، استرالیا — برای مشاهده کلیک کنید">
+                                    aria-label="تصویر ۱۰ از ۱۰، راه‌یابی به بخش رسمی نهمین دوره جشنواره بین‌المللی فیلم Colortape، استرالیا — برای مشاهده کلیک کنید">
                                     <img src="Images/award-colortape.jpg"
                                         alt="ماندالا — راه‌یافته به بخش رسمی نهمین دوره جشنواره بین‌المللی فیلم Colortape، استرالیا"
                                         loading="lazy"
@@ -1094,50 +1139,50 @@
                         </div>
                         <div class="carousel-dots" data-dots role="tablist" aria-label="انتخاب تصویر جایزه">
                             <button class="carousel-dot" data-index="0"
-                                aria-label="نمایش تصویر ۱ — گواهی Accolade"></button>
-                            <button class="carousel-dot" data-index="1"
-                                aria-label="نمایش تصویر ۲ — جشنواره پونه"></button>
+                                aria-label="نمایش تصویر ۱ — جایزه‌ی بهترین فیلم کوتاه تجربی TINFF"></button>
+<button class="carousel-dot" data-index="1"
+                                aria-label="نمایش تصویر ۲ — گواهی Accolade"></button>
                             <button class="carousel-dot" data-index="2"
-                                aria-label="نمایش تصویر ۳ — تقدیر Accolade"></button>
+                                aria-label="نمایش تصویر ۳ — جشنواره پونه"></button>
                             <button class="carousel-dot" data-index="3"
-                                aria-label="نمایش تصویر ۴ — گواهی Stay Gold"></button>
+                                aria-label="نمایش تصویر ۴ — تقدیر Accolade"></button>
                             <button class="carousel-dot" data-index="4"
-                                aria-label="نمایش تصویر ۵ — تصویر Stay Gold"></button>
+                                aria-label="نمایش تصویر ۵ — گواهی Stay Gold"></button>
                             <button class="carousel-dot" data-index="5"
-                                aria-label="نمایش تصویر ۶ — بهترین بازیگر مرد Accolade"></button>
-                            <button class="carousel-dot" data-index="6" aria-label="نمایش تصویر ۷ — SEAIFF"></button>
-                            <button class="carousel-dot" data-index="7"
-                                aria-label="نمایش تصویر ۸ — نامزدی TINFF"></button>
-                            <button class="carousel-dot" data-index="8" aria-label="نمایش تصویر ۹ — Colortape"></button>
+                                aria-label="نمایش تصویر ۶ — تصویر Stay Gold"></button>
+                            <button class="carousel-dot" data-index="6"
+                                aria-label="نمایش تصویر ۷ — بهترین بازیگر مرد Accolade"></button>
+                            <button class="carousel-dot" data-index="7" aria-label="نمایش تصویر ۸ — SEAIFF"></button>
+                            <button class="carousel-dot" data-index="8"
+                                aria-label="نمایش تصویر ۹ — نامزدی TINFF"></button>
+                            <button class="carousel-dot" data-index="9" aria-label="نمایش تصویر ۱۰ — Colortape"></button>
                         </div>
                     </div>
 
                     <div class="award-info" id="mandala-award-info">
-                        <h3 class="award-title">جشنواره‌ی جهانی فیلم Accolade</h3>
+                        <h3 class="award-title">بهترین فیلم کوتاه تجربی — دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو</h3>
                         <div class="award-body">
-                            <p>فیلم ماندالا برنده‌ی جایزه از <strong style="color:var(--gold-soft)">Accolade Global Film
-                                    Competition</strong> شده
-                                است؛ رقابتی داوری‌شده و مستقر در آمریکا که به‌طور ویژه برای قصه‌گویان مستقل طراحی
-                                شده و آثاری از فیلم‌سازان بیش از هفتاد کشور جهان در آن شرکت می‌کنند. این جشنواره
-                                از سال ۲۰۰۳ برگزار می‌شود و مجله‌ی MovieMaker آن را یکی از جشنواره‌های ارزشمند
-                                برای شرکت معرفی کرده است. Accolade واجد شرایط IMDb است و برندگان پیشین آن موفق به
-                                دریافت جوایز اسکار، امی و تلی نیز شده‌اند.</p>
+                            <p>فیلم کوتاه «ماندالا» ساخته‌ی بهنام خسروی، برنده‌ی جایزه‌ی <strong style="color:var(--gold-soft)">بهترین فیلم کوتاه تجربی</strong> از دهمین دوره‌ی جشنواره بین‌المللی فیلم TINFF شد؛ جشنواره‌ای مورد تأیید جوایز سینمایی کانادا. این جایزه پس از نامزدی دوگانه‌ی پیشین فیلم در همین جشنواره به دست آمد.</p>
+                            <p>از سرکار خانم سحر عزیزصمیمی سپاسگزاریم که با حضور در مراسم اختتامیه، این جایزه را به نمایندگی از فیلم دریافت کردند و همچنین از برگزارکنندگان جشنواره و هیئت داوران برای این افتخار ارزشمند قدردانی می‌کنیم.</p>
                         </div>
-                        <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
-                            rel="noopener noreferrer" aria-label="مشاهده‌ی وب‌سایت Accolade Global Film Competition">
-                            مشاهده‌ی Accolade
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
-                            </svg>
-                        </a>
-                        <a class="award-link" href="blog-award-accolade-fa.html" style="margin-inline-start:16px">
+                        <a class="award-link" href="blog-award-tinff-win-fa.html">
                             مطالعه‌ی کامل در وبلاگ ←
                         </a>
                     </div>
 
                     <!-- متن اختصاصی هر اسلاید، توسط اسکریپت کاروسل جایگزین #mandala-award-info می‌شود -->
                     <template id="mandala-award-info-tpl-0">
+                        <h3 class="award-title">بهترین فیلم کوتاه تجربی — دهمین جشنواره بین‌المللی فیلم TINFF، تورنتو</h3>
+                        <div class="award-body">
+                            <p>فیلم کوتاه «ماندالا» ساخته‌ی بهنام خسروی، برنده‌ی جایزه‌ی <strong style="color:var(--gold-soft)">بهترین فیلم کوتاه تجربی</strong> از دهمین دوره‌ی جشنواره بین‌المللی فیلم TINFF شد؛ جشنواره‌ای مورد تأیید جوایز سینمایی کانادا. این جایزه پس از نامزدی دوگانه‌ی پیشین فیلم در همین جشنواره به دست آمد.</p>
+                            <p>از سرکار خانم سحر عزیزصمیمی سپاسگزاریم که با حضور در مراسم اختتامیه، این جایزه را به نمایندگی از فیلم دریافت کردند و همچنین از برگزارکنندگان جشنواره و هیئت داوران برای این افتخار ارزشمند قدردانی می‌کنیم.</p>
+                        </div>
+                        <a class="award-link" href="blog-award-tinff-win-fa.html">
+                            مطالعه‌ی کامل در وبلاگ ←
+                        </a>
+                    </template>
+
+                    <template id="mandala-award-info-tpl-1">
                         <h3 class="award-title">جشنواره‌ی جهانی فیلم Accolade</h3>
                         <div class="award-body">
                             <p>فیلم ماندالا برنده‌ی جایزه از <strong style="color:var(--gold-soft)">Accolade Global Film
@@ -1161,7 +1206,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-1">
+                    <template id="mandala-award-info-tpl-2">
                         <h3 class="award-title">نامزدی بخش رسمی — جشنواره فیلم پونه، هند</h3>
                         <div class="award-body">
                             <p>فیلم ماندالا موفق به کسب <strong style="color:var(--gold-soft)">نامزدی بخش
@@ -1178,7 +1223,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-2">
+                    <template id="mandala-award-info-tpl-3">
                         <h3 class="award-title">جشنواره‌ی جهانی فیلم Accolade — تقدیر ویژه</h3>
                         <div class="award-body">
                             <p>برای اثری سه‌شخصیتی و مینیمال که تقریباً به‌طور کامل بر پرهیز، سکوت و تنش
@@ -1201,7 +1246,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-3">
+                    <template id="mandala-award-info-tpl-4">
                         <h3 class="award-title">جایزه‌ی Golden Standard — جشنواره فیلم Stay Gold</h3>
                         <div class="award-body">
                             <p><strong style="color:var(--gold-soft)">ماندالا دوباره می‌درخشد:</strong> دومین
@@ -1216,7 +1261,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-4">
+                    <template id="mandala-award-info-tpl-5">
                         <h3 class="award-title">جایزه‌ی Golden Standard — جشنواره فیلم Stay Gold</h3>
                         <div class="award-body">
                             <p>هیئت داوران، «ماندالا» را برای قصه‌گویی قدرتمند، کیفیت هنری، خلاقیت و سطح بالای
@@ -1230,7 +1275,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-5">
+                    <template id="mandala-award-info-tpl-6">
                         <h3 class="award-title">جایزه‌ی بهترین بازیگر نقش اول مرد — بهنام خسروی — برای فیلم ماندالا از
                             جشنواره Accolade</h3>
                         <div class="award-body">
@@ -1249,7 +1294,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-6">
+                    <template id="mandala-award-info-tpl-7">
                         <h3 class="award-title">حضور در جشنواره بین‌المللی فیلم جنوب شرق آسیا (SEAIFF)</h3>
                         <div class="award-body">
                             <p>فیلم کوتاه ماندالا به کارگردانی بهنام خسروی در تازه‌ترین حضور بین‌المللی خود، به
@@ -1268,7 +1313,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-7">
+                    <template id="mandala-award-info-tpl-8">
                         <h3 class="award-title">نامزدی بهترین فیلم کوتاه روایی تجربی — دهمین جشنواره بین‌المللی فیلم
                             TINFF، تورنتو</h3>
                         <div class="award-body">
@@ -1285,7 +1330,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-8">
+                    <template id="mandala-award-info-tpl-9">
                         <h3 class="award-title">راه‌یابی به بخش رسمی — نهمین دوره جشنواره بین‌المللی فیلم Colortape،
                             استرالیا</h3>
                         <div class="award-body">
@@ -1362,7 +1407,8 @@
                         </div>
                         <div class="detail-row">
                             <dt class="detail-label">جوایز</dt>
-                            <dd class="detail-value" style="color:var(--gold-soft)">Accolade Global Film
+                            <dd class="detail-value" style="color:var(--gold-soft)">جایزه‌ی بهترین فیلم کوتاه تجربی — دهمین جشنواره بین‌المللی فیلم TINFF
+                                <br>Accolade Global Film
                                 Competition
                                 <br>نامزد بخش رسمی — جشنواره فیلم پونه، هند
                                 <br>جایزه‌ی Golden Standard — جشنواره فیلم Stay Gold

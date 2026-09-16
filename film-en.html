@@ -262,6 +262,29 @@
             border: 0;
         }
 
+        /* SHORT */
+        .short-section {
+            padding: var(--section-py) var(--section-px);
+            background: #050505;
+            border-top: 1px solid rgba(184, 155, 94, .08);
+        }
+
+        .short-wrapper {
+            width: 100%;
+            max-width: 360px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border: 1px solid rgba(184, 155, 94, .2);
+            overflow: hidden;
+        }
+
+        .short-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: 0;
+        }
+
         /* AWARDS */
         .awards-section {
             padding: var(--section-py) var(--section-px);
@@ -992,6 +1015,19 @@
             </div>
         </section>
 
+        <!-- SHORT -->
+        <section class="short-section fade" aria-label="MANDALA YouTube Short">
+            <h2 class="section-title">Short</h2>
+            <div class="short-wrapper">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/AzYapCrEglw?rel=0&origin=https%3A%2F%2Fbehnamkhosravi.com"
+                    title="MANDALA short film — YouTube Short by Behnam Khosravi"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
         <!-- AWARDS -->
         <section class="awards-section fade" aria-label="MANDALA film awards and festival recognition">
             <h2 class="section-title">Awards &amp; Recognition</h2>
@@ -1006,84 +1042,93 @@
                             <span class="award-badge-text" id="mandala-badge-text">Award Winner</span>
                         </div>
 
-                        <!-- CAROUSEL: 7 photos across 4 festivals — active slide centered, click to enlarge -->
+                        <!-- CAROUSEL: 10 photos across 8 festivals — active slide centered, click to enlarge -->
                         <div class="award-carousel" data-carousel data-caption="MANDALA — Awards &amp; Selections"
                             data-info-target="mandala-award-info" aria-roledescription="carousel"
                             aria-label="MANDALA award and selection photos">
                             <div class="carousel-stage">
                                 <div class="carousel-slide" data-index="0" data-badge="Award Winner" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 1 of 7, Accolade Global Film Competition certificate. Currently shown — click to enlarge.">
+                                    aria-label="Photo 1 of 10, Best Experimental Short Film award, 10th TINFF International Film Festival, Toronto — click to view">
+                                    <img src="Images/award-tinff-win.jpg"
+                                        alt="MANDALA — Best Experimental Short Film Award, 10th TINFF International Film Festival, Toronto"
+                                        loading="lazy"
+                                        onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-tinff-win.jpg&lt;/p&gt;&lt;/div&gt;'">
+                                    <div class="award-zoom-hint">Click to zoom</div>
+                                </div>
+                                <div class="carousel-slide" data-index="1" data-badge="Award Winner" role="button"
+                                    tabindex="0"
+                                    aria-label="Photo 2 of 10, Accolade Global Film Competition certificate. Currently shown — click to enlarge.">
                                     <img src="Images/award-accolade.jpg"
                                         alt="MANDALA — Accolade Global Film Competition Award Certificate"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="1" data-badge="Official Selection" role="button"
+                                <div class="carousel-slide" data-index="2" data-badge="Official Selection" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 2 of 7, official selection at the Pune Film Festival, India — click to view">
+                                    aria-label="Photo 3 of 10, official selection at the Pune Film Festival, India — click to view">
                                     <img src="Images/award-accolade-2.jpg"
                                         alt="MANDALA — Official Selection, Pune Film Festival, India" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-2.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="2" data-badge="Award Winner" role="button"
+                                <div class="carousel-slide" data-index="3" data-badge="Award Winner" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 3 of 7, Accolade Global Film Competition recognition photo — click to view">
+                                    aria-label="Photo 4 of 10, Accolade Global Film Competition recognition photo — click to view">
                                     <img src="Images/award-accolade-3.jpg"
                                         alt="MANDALA — Accolade Global Film Competition, recognition photo"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-3.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="3" data-badge="Award Winner" role="button"
+                                <div class="carousel-slide" data-index="4" data-badge="Award Winner" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 4 of 7, Stay Gold Film Festival Golden Standard Award certificate — click to view">
+                                    aria-label="Photo 5 of 10, Stay Gold Film Festival Golden Standard Award certificate — click to view">
                                     <img src="Images/award-staygold.jpg"
                                         alt="MANDALA — Stay Gold Film Festival Golden Standard Award Certificate"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-staygold.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="4" data-badge="Award Winner" role="button"
+                                <div class="carousel-slide" data-index="5" data-badge="Award Winner" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 5 of 7, Stay Gold Film Festival award photo — click to view">
+                                    aria-label="Photo 6 of 10, Stay Gold Film Festival award photo — click to view">
                                     <img src="Images/award-staygold-2.jpg"
                                         alt="MANDALA — Stay Gold Film Festival, award photo" loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-staygold-2.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="5" data-badge="Best Actor" role="button"
+                                <div class="carousel-slide" data-index="6" data-badge="Best Actor" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 6 of 7, Best Actor in a Leading Role award, Behnam Khosravi, Accolade Global Film Competition — click to view">
+                                    aria-label="Photo 7 of 10, Best Actor in a Leading Role award, Behnam Khosravi, Accolade Global Film Competition — click to view">
                                     <img src="Images/award-accolade-best-actor.jpg"
                                         alt="MANDALA — Best Actor in a Leading Role Award, Behnam Khosravi, Accolade Global Film Competition"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-accolade-best-actor.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="6" data-badge="Official Selection" role="button"
+                                <div class="carousel-slide" data-index="7" data-badge="Official Selection" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 7 of 9, official selection at the Southeast Asia International Film Festival (SEAIFF) — click to view">
+                                    aria-label="Photo 8 of 10, official selection at the Southeast Asia International Film Festival (SEAIFF) — click to view">
                                     <img src="Images/award-seaiff.jpg"
                                         alt="MANDALA — Official Selection, Southeast Asia International Film Festival (SEAIFF)"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-seaiff.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="7" data-badge="Nominee" role="button"
+                                <div class="carousel-slide" data-index="8" data-badge="Nominee" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 8 of 9, Best Narrative Short Experimental nomination at the 10th TINFF International Film Festival, Toronto — click to view">
+                                    aria-label="Photo 9 of 10, Best Narrative Short Experimental nomination at the 10th TINFF International Film Festival, Toronto — click to view">
                                     <img src="Images/award-tinff.jpg"
                                         alt="MANDALA — Nominated at the 10th TINFF International Film Festival, Toronto"
                                         loading="lazy"
                                         onerror="this.parentElement.innerHTML='&lt;div class=&quot;award-image-placeholder&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z&quot;/&gt;&lt;/svg&gt;&lt;p&gt;Upload award photo&lt;br&gt;to Images/award-tinff.jpg&lt;/p&gt;&lt;/div&gt;'">
                                     <div class="award-zoom-hint">Click to zoom</div>
                                 </div>
-                                <div class="carousel-slide" data-index="8" data-badge="Official Selection" role="button"
+                                <div class="carousel-slide" data-index="9" data-badge="Official Selection" role="button"
                                     tabindex="0"
-                                    aria-label="Photo 9 of 9, official selection at the 9th Colortape International Film Festival, Australia — click to view">
+                                    aria-label="Photo 10 of 10, official selection at the 9th Colortape International Film Festival, Australia — click to view">
                                     <img src="Images/award-colortape.jpg"
                                         alt="MANDALA — Official Selection, 9th Colortape International Film Festival, Australia"
                                         loading="lazy"
@@ -1104,50 +1149,64 @@
                         </div>
                         <div class="carousel-dots" data-dots role="tablist" aria-label="Select award photo">
                             <button class="carousel-dot" data-index="0"
-                                aria-label="Show photo 1 — Accolade certificate"></button>
+                                aria-label="Show photo 1 — TINFF Best Experimental Short Film award"></button>
                             <button class="carousel-dot" data-index="1"
-                                aria-label="Show photo 2 — Pune Film Festival"></button>
+                                aria-label="Show photo 2 — Accolade certificate"></button>
                             <button class="carousel-dot" data-index="2"
-                                aria-label="Show photo 3 — Accolade recognition"></button>
+                                aria-label="Show photo 3 — Pune Film Festival"></button>
                             <button class="carousel-dot" data-index="3"
-                                aria-label="Show photo 4 — Stay Gold certificate"></button>
+                                aria-label="Show photo 4 — Accolade recognition"></button>
                             <button class="carousel-dot" data-index="4"
-                                aria-label="Show photo 5 — Stay Gold photo"></button>
+                                aria-label="Show photo 5 — Stay Gold certificate"></button>
                             <button class="carousel-dot" data-index="5"
-                                aria-label="Show photo 6 — Accolade Best Actor"></button>
-                            <button class="carousel-dot" data-index="6" aria-label="Show photo 7 — SEAIFF"></button>
-                            <button class="carousel-dot" data-index="7"
-                                aria-label="Show photo 8 — TINFF nomination"></button>
-                            <button class="carousel-dot" data-index="8" aria-label="Show photo 9 — Colortape"></button>
+                                aria-label="Show photo 6 — Stay Gold photo"></button>
+                            <button class="carousel-dot" data-index="6"
+                                aria-label="Show photo 7 — Accolade Best Actor"></button>
+                            <button class="carousel-dot" data-index="7" aria-label="Show photo 8 — SEAIFF"></button>
+                            <button class="carousel-dot" data-index="8"
+                                aria-label="Show photo 9 — TINFF nomination"></button>
+                            <button class="carousel-dot" data-index="9" aria-label="Show photo 10 — Colortape"></button>
                         </div>
                     </div>
 
                     <div class="award-info" id="mandala-award-info">
-                        <h3 class="award-title">Accolade Global Film Competition</h3>
+                        <h3 class="award-title">Best Experimental Short Film — 10th TINFF International Film Festival,
+                            Toronto</h3>
                         <div class="award-body">
-                            <p>MANDALA has won an award from the <strong style="color:var(--gold-soft)">Accolade Global
-                                    Film Competition</strong> — a
-                                U.S.-based juried competition built specifically for independent storytellers,
-                                drawing entries from filmmakers in more than seventy countries. Running since 2003
-                                and named by MovieMaker Magazine as one of the festivals worth the entry fee,
-                                Accolade is IMDb-qualified, and past honorees have gone on to receive Oscar, Emmy,
-                                and Telly recognition.</p>
+                            <p>MANDALA, directed by Behnam Khosravi, has won <strong style="color:var(--gold-soft)">Best
+                                    Experimental Short Film</strong> at the 10th edition of the Toronto International
+                                Nollywood Film Festival (TINFF) — a festival recognized by the Canadian Screen Awards.
+                                The win follows the film's double nomination at the same festival, turning that early
+                                recognition into MANDALA's latest international award.</p>
+                            <p>Our sincere thanks to Ms. Sahar Azizsamimi, who attended the closing ceremony and
+                                graciously accepted the award on behalf of the film, and to the festival organizers and
+                                jury for this valuable honor.</p>
                         </div>
-                        <a class="award-link" href="https://accoladecompetition.org/" target="_blank"
-                            rel="noopener noreferrer" aria-label="Visit Accolade Global Film Competition website">
-                            Visit Accolade
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
-                            </svg>
-                        </a>
-                        <a class="award-link" href="blog-award-accolade.html" style="margin-inline-start:16px">
+                        <a class="award-link" href="blog-award-tinff-win.html">
                             Read the full story on the blog →
                         </a>
                     </div>
 
                     <!-- Per-slide content, swapped into #mandala-award-info by the carousel script -->
                     <template id="mandala-award-info-tpl-0">
+                        <h3 class="award-title">Best Experimental Short Film — 10th TINFF International Film Festival,
+                            Toronto</h3>
+                        <div class="award-body">
+                            <p>MANDALA, directed by Behnam Khosravi, has won <strong style="color:var(--gold-soft)">Best
+                                    Experimental Short Film</strong> at the 10th edition of the Toronto International
+                                Nollywood Film Festival (TINFF) — a festival recognized by the Canadian Screen Awards.
+                                The win follows the film's double nomination at the same festival, turning that early
+                                recognition into MANDALA's latest international award.</p>
+                            <p>Our sincere thanks to Ms. Sahar Azizsamimi, who attended the closing ceremony and
+                                graciously accepted the award on behalf of the film, and to the festival organizers and
+                                jury for this valuable honor.</p>
+                        </div>
+                        <a class="award-link" href="blog-award-tinff-win.html">
+                            Read the full story on the blog →
+                        </a>
+                    </template>
+
+                    <template id="mandala-award-info-tpl-1">
                         <h3 class="award-title">Accolade Global Film Competition</h3>
                         <div class="award-body">
                             <p>MANDALA has won an award from the <strong style="color:var(--gold-soft)">Accolade Global
@@ -1171,7 +1230,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-1">
+                    <template id="mandala-award-info-tpl-2">
                         <h3 class="award-title">Official Selection — Pune Film Festival, India</h3>
                         <div class="award-body">
                             <p>MANDALA has earned an <strong style="color:var(--gold-soft)">official selection at
@@ -1188,7 +1247,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-2">
+                    <template id="mandala-award-info-tpl-3">
                         <h3 class="award-title">Accolade Global Film Competition — Recognition</h3>
                         <div class="award-body">
                             <p>For a three-character chamber piece built almost entirely on restraint, silence, and
@@ -1210,7 +1269,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-3">
+                    <template id="mandala-award-info-tpl-4">
                         <h3 class="award-title">Golden Standard Award — Stay Gold Film Festival</h3>
                         <div class="award-body">
                             <p><strong style="color:var(--gold-soft)">Mandala Shines Again:</strong> a second
@@ -1226,7 +1285,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-4">
+                    <template id="mandala-award-info-tpl-5">
                         <h3 class="award-title">Golden Standard Award — Stay Gold Film Festival</h3>
                         <div class="award-body">
                             <p>The jury recognized "Mandala" for its powerful storytelling, artistic quality,
@@ -1241,7 +1300,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-5">
+                    <template id="mandala-award-info-tpl-6">
                         <h3 class="award-title">Best Actor in a Leading Role Award — Behnam Khosravi — for MANDALA,
                             Accolade Global Film Competition</h3>
                         <div class="award-body">
@@ -1260,7 +1319,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-6">
+                    <template id="mandala-award-info-tpl-7">
                         <h3 class="award-title">Official Selection — Southeast Asia International Film Festival (SEAIFF)
                         </h3>
                         <div class="award-body">
@@ -1280,7 +1339,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-7">
+                    <template id="mandala-award-info-tpl-8">
                         <h3 class="award-title">Best Narrative Short Experimental Nomination — 10th TINFF International
                             Film Festival, Toronto</h3>
                         <div class="award-body">
@@ -1299,7 +1358,7 @@
                         </a>
                     </template>
 
-                    <template id="mandala-award-info-tpl-8">
+                    <template id="mandala-award-info-tpl-9">
                         <h3 class="award-title">Official Selection — 9th Colortape International Film Festival,
                             Australia</h3>
                         <div class="award-body">
@@ -1379,7 +1438,9 @@
                         </div>
                         <div class="detail-row">
                             <dt class="detail-label">Awards</dt>
-                            <dd class="detail-value" style="color:var(--gold-soft)">Accolade Global Film Competition
+                            <dd class="detail-value" style="color:var(--gold-soft)">Best Experimental Short Film — 10th
+                                TINFF International Film Festival
+                                <br>Accolade Global Film Competition
                                 <br>Official Selection — Pune Film Festival, India
                                 <br>Golden Standard Award — Stay Gold Film Festival
                                 <br>Best Actor in a Leading Role — Accolade Global Film Competition
